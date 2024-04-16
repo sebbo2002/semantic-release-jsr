@@ -36,16 +36,16 @@
     "node": ">=18.0.0"
   },
   "exports": {
-    "import": "./dist/lib/index.js",
-    "require": "./dist/lib/index.cjs"
+    "import": "./dist/index.js",
+    "require": "./dist/index.cjs"
   },
   "files": [
     "/dist"
   ],
   "homepage": "https://github.com/sebbo2002/semantic-release-jsr#readme",
   "license": "MIT",
-  "main": "./dist/lib/index.cjs",
-  "module": "./dist/lib/index.js",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
   "name": "@sebbo2002/semantic-release-jsr",
   "repository": {
     "type": "git",

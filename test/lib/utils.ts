@@ -5,7 +5,7 @@ import {
     generatePublishResponse,
     NormalizedPluginConfig,
     PublishResponseContext
-} from '../../src/lib/index.js';
+} from '../../src/index.ts';
 
 describe('Utils', function () {
     describe('generatePublishResponse()', function () {

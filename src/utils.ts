@@ -3,7 +3,7 @@ import {
     PluginConfig,
     PublishResponse,
     PublishResponseContext
-} from './types.js';
+} from './types.ts';
 import { publish as jsrPublish } from 'jsr';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
