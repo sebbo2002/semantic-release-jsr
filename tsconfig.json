@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "allowImportingTsExtensions": true,
+        "declaration": true,
+        "esModuleInterop": true,
+        "module": "nodenext",
+        "moduleResolution": "nodenext",
+        "outDir": "./dist",
+        "sourceMap": true,
+        "strict": true,
+        "target": "es6"
+    },
+    "exclude": [
+        "node_modules",
+        "**/*.spec.ts"
+    ],
+    "include": [
+        "src/**/*"
+    ],
+    "ts-node": {
+        "esm": true,
+        "experimentalResolver": true,
+        "files": true
+    }
+}

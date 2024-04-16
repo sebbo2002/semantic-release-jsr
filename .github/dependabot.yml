@@ -1,0 +1,11 @@
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    assignees:
+      - sebbo2002
+    commit-message:
+      prefix: "ci"
+      include: scope
+    schedule:
+      interval: weekly
