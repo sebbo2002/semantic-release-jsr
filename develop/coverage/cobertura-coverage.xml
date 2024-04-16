@@ -1,11 +1,11 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="231" lines-covered="137" line-rate="0.593" branches-valid="13" branches-covered="5" branch-rate="0.3846" timestamp="1713294553576" complexity="0" version="0.1">
+<coverage lines-valid="250" lines-covered="137" line-rate="0.5479999999999999" branches-valid="13" branches-covered="5" branch-rate="0.3846" timestamp="1713297170025" complexity="0" version="0.1">
   <sources>
     <source>/home/runner/work/semantic-release-jsr/semantic-release-jsr</source>
   </sources>
   <packages>
-    <package name="main" line-rate="0.593" branch-rate="0.3846">
+    <package name="main" line-rate="0.5479999999999999" branch-rate="0.3846">
       <classes>
         <class name="command.ts" filename="src/command.ts" line-rate="0.47159999999999996" branch-rate="1">
           <methods>
@@ -156,6 +156,25 @@
             <line number="25" hits="0" branch="false"/>
             <line number="26" hits="0" branch="false"/>
             <line number="27" hits="0" branch="false"/>
+            <line number="28" hits="0" branch="false"/>
+            <line number="29" hits="0" branch="false"/>
+            <line number="30" hits="0" branch="false"/>
+            <line number="31" hits="0" branch="false"/>
+            <line number="32" hits="0" branch="false"/>
+            <line number="33" hits="0" branch="false"/>
+            <line number="34" hits="0" branch="false"/>
+            <line number="35" hits="0" branch="false"/>
+            <line number="36" hits="0" branch="false"/>
+            <line number="37" hits="0" branch="false"/>
+            <line number="38" hits="0" branch="false"/>
+            <line number="39" hits="0" branch="false"/>
+            <line number="40" hits="0" branch="false"/>
+            <line number="41" hits="0" branch="false"/>
+            <line number="42" hits="0" branch="false"/>
+            <line number="43" hits="0" branch="false"/>
+            <line number="44" hits="0" branch="false"/>
+            <line number="45" hits="0" branch="false"/>
+            <line number="46" hits="0" branch="false"/>
           </lines>
         </class>
         <class name="utils.ts" filename="src/utils.ts" line-rate="0.6953" branch-rate="0.41659999999999997">
