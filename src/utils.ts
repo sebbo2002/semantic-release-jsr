@@ -10,6 +10,7 @@ import { join } from 'node:path';
 import { existsSync } from 'node:fs';
 import { readFile, writeFile } from 'node:fs/promises';
 import { VerifyReleaseContext, VerifyConditionsContext } from 'semantic-release';
+import { mkdtempSync } from 'fs';
 
 export async function parseConfig (config: PluginConfig): Promise<NormalizedPluginConfig> {
     const cwd = config.cwd || process.cwd();
@@ -51,11 +52,22 @@ export async function parseConfig (config: PluginConfig): Promise<NormalizedPlug
             versionJsonPaths
         },
         publish: {
-            binFolder: tmpdir(),
+            binFolder: getTemporeryBinFolder(),
             pkgJsonPath: pkgJsonPath,
             publishArgs: config.publishArgs || []
         }
     };
+}
+
+let temporaryBinFolder: string | undefined;
+export function getTemporeryBinFolder (): string {
+    if (temporaryBinFolder) {
+        return temporaryBinFolder;
+    }
+
+    const path = mkdtempSync(join(tmpdir(), 'semantic-release-jsr-'));
+    temporaryBinFolder = path;
+    return path;
 }
 
 export async function updateVersionJson (file: string, context: VerifyReleaseContext) {
@@ -79,10 +91,13 @@ export async function updateVersionJson (file: string, context: VerifyReleaseCon
 export async function publish (config: NormalizedPluginConfig, context: VerifyConditionsContext): Promise<void> {
     context.logger.log(`Run jsr publish in ${config.cwd} with ${JSON.stringify(config.publish)}`);
 
+    const ms = Date.now();
     try {
         await jsrPublish(config.cwd, config.publish);
+        context.logger.log(`jsr publish run successfully (took ${Date.now() - ms } ms)`);
     }
     catch (error) {
+        context.logger.log(`jsr publish failed after ${Date.now() - ms } ms:`);
         context.logger.error(error instanceof Error ? error.stack : error);
         throw error;
     }
