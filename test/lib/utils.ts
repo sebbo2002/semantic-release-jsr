@@ -3,11 +3,28 @@
 import * as assert from 'node:assert';
 import {
     generatePublishResponse,
-    NormalizedPluginConfig,
-    PublishResponseContext
+    NormalizedPluginConfig, parseConfig,
+    PublishResponseContext, removeTemporaryBinFolder
 } from '../../src/index.ts';
 
 describe('Utils', function () {
+    describe('parseConfig()', function () {
+        describe('should work for this project', async function () {
+            const result = await parseConfig({});
+
+            assert.ok(result.cwd);
+            assert.strictEqual(result.name, '@sebbo2002/semantic-release-jsr');
+            assert.deepStrictEqual(result.prepare, {
+                versionJsonPaths: [ result.cwd + '/package.json' ]
+            });
+
+            assert.ok(typeof result.publish, 'object');
+            assert.strictEqual(result.publish.pkgJsonPath, result.cwd + '/package.json');
+            assert.deepStrictEqual(result.publish.publishArgs, [ '--allow-dirty' ]);
+
+            await removeTemporaryBinFolder();
+        });
+    });
     describe('generatePublishResponse()', function () {
         it('should work with release', function () {
             const config: NormalizedPluginConfig = {
