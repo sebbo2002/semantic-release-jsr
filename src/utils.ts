@@ -78,7 +78,14 @@ export async function updateVersionJson (file: string, context: VerifyReleaseCon
 
 export async function publish (config: NormalizedPluginConfig, context: VerifyConditionsContext): Promise<void> {
     context.logger.log(`Run jsr publish in ${config.cwd} with ${JSON.stringify(config.publish)}`);
-    await jsrPublish(config.cwd, config.publish);
+
+    try {
+        await jsrPublish(config.cwd, config.publish);
+    }
+    catch (error) {
+        context.logger.error(error instanceof Error ? error.stack : error);
+        throw error;
+    }
 }
 
 export function generatePublishResponse (config: NormalizedPluginConfig, context: PublishResponseContext): PublishResponse {
