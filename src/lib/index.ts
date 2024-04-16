@@ -5,12 +5,15 @@ export {
 } from './command.ts';
 
 export {
-    PluginConfig,
     NormalizedPluginConfig,
-    PublishResponseContext,
-    PublishResponse
+    PluginConfig,
+    PublishResponse,
+    PublishResponseContext
 } from './types.ts';
 
 export {
-    generatePublishResponse
+    generatePublishResponse,
+    parseConfig,
+    publish as jsrPublish,
+    updateVersionJson
 } from './utils.ts';
