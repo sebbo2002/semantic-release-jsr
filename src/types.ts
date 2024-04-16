@@ -5,6 +5,7 @@ export interface PluginConfig {
     cwd?: string;
     pkgJsonPath?: string;
     publishArgs?: string[];
+    allowDirty?: boolean;
 }
 
 export interface NormalizedPluginConfig {

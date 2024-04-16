@@ -45,6 +45,11 @@ export async function parseConfig (config: PluginConfig): Promise<NormalizedPlug
         throw new Error('No name found in jsr.json or deno.json');
     }
 
+    const publishArgs = config.publishArgs?.slice(0) || [];
+    if ((config.allowDirty === undefined || config.allowDirty) && !publishArgs.includes('--allow-dirty')) {
+        publishArgs.push('--allow-dirty');
+    }
+
     return {
         cwd,
         name,
@@ -52,15 +57,15 @@ export async function parseConfig (config: PluginConfig): Promise<NormalizedPlug
             versionJsonPaths
         },
         publish: {
-            binFolder: getTemporeryBinFolder(),
+            binFolder: getTemporaryBinFolder(),
             pkgJsonPath: pkgJsonPath,
-            publishArgs: config.publishArgs || []
+            publishArgs
         }
     };
 }
 
 let temporaryBinFolder: string | undefined;
-export function getTemporeryBinFolder (): string {
+export function getTemporaryBinFolder (): string {
     if (temporaryBinFolder) {
         return temporaryBinFolder;
     }
