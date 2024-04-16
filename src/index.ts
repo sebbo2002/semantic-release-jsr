@@ -1,7 +1,9 @@
 export {
-    verifyConditions,
+    fail,
     prepare,
-    publish
+    publish,
+    success,
+    verifyConditions
 } from './command.ts';
 
 export {
@@ -13,7 +15,9 @@ export {
 
 export {
     generatePublishResponse,
+    getTemporaryBinFolder,
     parseConfig,
     publish as jsrPublish,
+    removeTemporaryBinFolder,
     updateVersionJson
 } from './utils.ts';

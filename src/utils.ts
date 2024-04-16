@@ -7,10 +7,10 @@ import {
 import { publish as jsrPublish } from 'jsr';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { existsSync } from 'node:fs';
-import { readFile, writeFile } from 'node:fs/promises';
+import { existsSync, mkdtempSync } from 'node:fs';
+import { readFile, rm, writeFile } from 'node:fs/promises';
 import { VerifyReleaseContext, VerifyConditionsContext } from 'semantic-release';
-import { mkdtempSync } from 'fs';
+import {  } from 'fs';
 
 export async function parseConfig (config: PluginConfig): Promise<NormalizedPluginConfig> {
     const cwd = config.cwd || process.cwd();
@@ -73,6 +73,13 @@ export function getTemporaryBinFolder (): string {
     const path = mkdtempSync(join(tmpdir(), 'semantic-release-jsr-'));
     temporaryBinFolder = path;
     return path;
+}
+
+export async function removeTemporaryBinFolder () {
+    if (temporaryBinFolder) {
+        await rm(temporaryBinFolder, { recursive: true, force: true });
+        temporaryBinFolder = undefined;
+    }
 }
 
 export async function updateVersionJson (file: string, context: VerifyReleaseContext) {

@@ -1,9 +1,16 @@
 import { PluginConfig, PublishResponse } from './types.ts';
-import { PrepareContext, PublishContext, VerifyConditionsContext } from 'semantic-release';
+import {
+    FailContext,
+    PrepareContext,
+    PublishContext,
+    SuccessContext,
+    VerifyConditionsContext
+} from 'semantic-release';
 import {
     generatePublishResponse,
     parseConfig,
     publish as publishUtil,
+    removeTemporaryBinFolder,
     updateVersionJson
 } from './utils.ts';
 
@@ -33,4 +40,14 @@ export async function publish(pluginConfig: PluginConfig, context: PublishContex
     const config = await parseConfig(pluginConfig);
     await publishUtil(config, context);
     return generatePublishResponse(config, context);
+}
+
+export async function success (pluginConfig: PluginConfig, context: SuccessContext) {
+    context.logger.log('Removing temporary folder');
+    await removeTemporaryBinFolder();
+}
+
+export async function fail (pluginConfig: PluginConfig, context: FailContext) {
+    context.logger.log('Removing temporary folder');
+    await removeTemporaryBinFolder();
 }
