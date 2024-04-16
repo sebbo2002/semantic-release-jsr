@@ -1,13 +1,13 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="175" lines-covered="63" line-rate="0.36" branches-valid="3" branches-covered="2" branch-rate="0.6666" timestamp="1713280803536" complexity="0" version="0.1">
+<coverage lines-valid="175" lines-covered="63" line-rate="0.36" branches-valid="3" branches-covered="2" branch-rate="0.6666" timestamp="1713281575219" complexity="0" version="0.1">
   <sources>
     <source>/home/runner/work/semantic-release-jsr/semantic-release-jsr</source>
   </sources>
   <packages>
     <package name="main" line-rate="0.36" branch-rate="0.6666">
       <classes>
-        <class name="command.ts" filename="src/lib/command.ts" line-rate="0.38880000000000003" branch-rate="1">
+        <class name="command.ts" filename="src/command.ts" line-rate="0.38880000000000003" branch-rate="1">
           <methods>
             <method name="verifyConditions" hits="0" signature="()V">
               <lines>
@@ -64,7 +64,7 @@
             <line number="36" hits="0" branch="false"/>
           </lines>
         </class>
-        <class name="index.ts" filename="src/lib/index.ts" line-rate="1" branch-rate="1">
+        <class name="index.ts" filename="src/index.ts" line-rate="1" branch-rate="1">
           <methods>
           </methods>
           <lines>
@@ -89,7 +89,7 @@
             <line number="19" hits="1" branch="false"/>
           </lines>
         </class>
-        <class name="types.ts" filename="src/lib/types.ts" line-rate="0" branch-rate="0">
+        <class name="types.ts" filename="src/types.ts" line-rate="0" branch-rate="0">
           <methods>
             <method name="(empty-report)" hits="0" signature="()V">
               <lines>
@@ -126,7 +126,7 @@
             <line number="26" hits="0" branch="false"/>
           </lines>
         </class>
-        <class name="utils.ts" filename="src/lib/utils.ts" line-rate="0.3191" branch-rate="1">
+        <class name="utils.ts" filename="src/utils.ts" line-rate="0.3191" branch-rate="1">
           <methods>
             <method name="parseConfig" hits="0" signature="()V">
               <lines>

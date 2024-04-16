@@ -5,8 +5,8 @@
     "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2024-04-16T15:20:00.562Z",
-    "end": "2024-04-16T15:20:00.566Z",
+    "start": "2024-04-16T15:32:52.232Z",
+    "end": "2024-04-16T15:32:52.236Z",
     "duration": 4,
     "testsRegistered": 2,
     "passPercent": 100,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "96515673-9ec6-46fe-b84b-d4637c431c3d",
+      "uuid": "19bd554c-4c4f-43ee-91d1-43809e3ef8fd",
       "title": "",
       "fullFile": "/home/runner/work/semantic-release-jsr/semantic-release-jsr/test/lib/utils.ts",
       "file": "/test/lib/utils.ts",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "f7bca496-c115-442e-a8e4-91e769bfbf76",
+          "uuid": "54a243d3-80d8-4a97-b41b-635bdbb3ced4",
           "title": "Utils",
           "fullFile": "/home/runner/work/semantic-release-jsr/semantic-release-jsr/test/lib/utils.ts",
           "file": "/test/lib/utils.ts",
@@ -36,7 +36,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "c6ef0e52-6717-4670-b492-2a081f18589d",
+              "uuid": "3da3afd9-c3ec-42a4-992b-b7c3373b0fca",
               "title": "generatePublishResponse()",
               "fullFile": "/home/runner/work/semantic-release-jsr/semantic-release-jsr/test/lib/utils.ts",
               "file": "/test/lib/utils.ts",
@@ -47,7 +47,7 @@
                   "title": "should work with release",
                   "fullTitle": "Utils generatePublishResponse() should work with release",
                   "timedOut": false,
-                  "duration": 0,
+                  "duration": 1,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -56,8 +56,8 @@
                   "context": null,
                   "code": "const config = {\n    cwd: process.cwd(),\n    name: '@sebbo2002/ical-generator',\n    prepare: {\n        versionJsonPaths: []\n    },\n    publish: {\n        binFolder: '',\n        pkgJsonPath: '',\n        publishArgs: []\n    }\n};\nconst context = {\n    nextRelease: {\n        version: '1.2.3',\n        gitTag: 'v1.2.3',\n        name: 'v1.2.3',\n        type: 'patch',\n        channel: '',\n        gitHead: '',\n        notes: '# [1.2.3](…)'\n    }\n};\nconst response = generatePublishResponse(config, context);\nassert.deepStrictEqual(response, {\n    name: 'JSR.io',\n    url: 'https://jsr.io/@sebbo2002/ical-generator@1.2.3'\n});",
                   "err": {},
-                  "uuid": "6b45ea87-2919-49fd-8fbc-2ba552e24951",
-                  "parentUUID": "c6ef0e52-6717-4670-b492-2a081f18589d",
+                  "uuid": "ee6ac363-e355-4b2a-8e9d-618fdf6fd14c",
+                  "parentUUID": "3da3afd9-c3ec-42a4-992b-b7c3373b0fca",
                   "isHook": false,
                   "skipped": false
                 },
@@ -74,21 +74,21 @@
                   "context": null,
                   "code": "const config = {\n    cwd: process.cwd(),\n    name: '@sebbo2002/ical-generator',\n    prepare: {\n        versionJsonPaths: []\n    },\n    publish: {\n        binFolder: '',\n        pkgJsonPath: '',\n        publishArgs: []\n    }\n};\nconst context = {};\nconst response = generatePublishResponse(config, context);\nassert.deepStrictEqual(response, {\n    name: 'JSR.io',\n    url: 'https://jsr.io/@sebbo2002/ical-generator/versions'\n});",
                   "err": {},
-                  "uuid": "f563701c-7990-4bf0-beb6-3eba16f6623a",
-                  "parentUUID": "c6ef0e52-6717-4670-b492-2a081f18589d",
+                  "uuid": "dac07057-a5b3-40db-a0e5-f54b04d9bf67",
+                  "parentUUID": "3da3afd9-c3ec-42a4-992b-b7c3373b0fca",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "6b45ea87-2919-49fd-8fbc-2ba552e24951",
-                "f563701c-7990-4bf0-beb6-3eba16f6623a"
+                "ee6ac363-e355-4b2a-8e9d-618fdf6fd14c",
+                "dac07057-a5b3-40db-a0e5-f54b04d9bf67"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 0,
+              "duration": 1,
               "root": false,
               "rootEmpty": false,
               "_timeout": 2000
