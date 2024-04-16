@@ -1,11 +1,11 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="175" lines-covered="63" line-rate="0.36" branches-valid="3" branches-covered="2" branch-rate="0.6666" timestamp="1713281575219" complexity="0" version="0.1">
+<coverage lines-valid="182" lines-covered="63" line-rate="0.3461" branches-valid="3" branches-covered="2" branch-rate="0.6666" timestamp="1713285146601" complexity="0" version="0.1">
   <sources>
     <source>/home/runner/work/semantic-release-jsr/semantic-release-jsr</source>
   </sources>
   <packages>
-    <package name="main" line-rate="0.36" branch-rate="0.6666">
+    <package name="main" line-rate="0.3461" branch-rate="0.6666">
       <classes>
         <class name="command.ts" filename="src/command.ts" line-rate="0.38880000000000003" branch-rate="1">
           <methods>
@@ -126,7 +126,7 @@
             <line number="26" hits="0" branch="false"/>
           </lines>
         </class>
-        <class name="utils.ts" filename="src/utils.ts" line-rate="0.3191" branch-rate="1">
+        <class name="utils.ts" filename="src/utils.ts" line-rate="0.297" branch-rate="1">
           <methods>
             <method name="parseConfig" hits="0" signature="()V">
               <lines>
@@ -145,7 +145,7 @@
             </method>
             <method name="generatePublishResponse" hits="2" signature="()V">
               <lines>
-                <line number="84" hits="2"/>
+                <line number="91" hits="2"/>
               </lines>
             </method>
           </methods>
@@ -232,18 +232,25 @@
             <line number="80" hits="0" branch="false"/>
             <line number="81" hits="0" branch="false"/>
             <line number="82" hits="0" branch="false"/>
-            <line number="83" hits="1" branch="false"/>
-            <line number="84" hits="1" branch="true" condition-coverage="100% (1/1)"/>
-            <line number="85" hits="2" branch="false"/>
-            <line number="86" hits="2" branch="true" condition-coverage="100% (1/1)"/>
-            <line number="87" hits="1" branch="false"/>
-            <line number="88" hits="1" branch="false"/>
-            <line number="89" hits="2" branch="false"/>
-            <line number="90" hits="2" branch="false"/>
-            <line number="91" hits="2" branch="false"/>
+            <line number="83" hits="0" branch="false"/>
+            <line number="84" hits="0" branch="false"/>
+            <line number="85" hits="0" branch="false"/>
+            <line number="86" hits="0" branch="false"/>
+            <line number="87" hits="0" branch="false"/>
+            <line number="88" hits="0" branch="false"/>
+            <line number="89" hits="0" branch="false"/>
+            <line number="90" hits="1" branch="false"/>
+            <line number="91" hits="1" branch="true" condition-coverage="100% (1/1)"/>
             <line number="92" hits="2" branch="false"/>
-            <line number="93" hits="2" branch="false"/>
-            <line number="94" hits="2" branch="false"/>
+            <line number="93" hits="2" branch="true" condition-coverage="100% (1/1)"/>
+            <line number="94" hits="1" branch="false"/>
+            <line number="95" hits="1" branch="false"/>
+            <line number="96" hits="2" branch="false"/>
+            <line number="97" hits="2" branch="false"/>
+            <line number="98" hits="2" branch="false"/>
+            <line number="99" hits="2" branch="false"/>
+            <line number="100" hits="2" branch="false"/>
+            <line number="101" hits="2" branch="false"/>
           </lines>
         </class>
       </classes>
