@@ -5,17 +5,11 @@
 Small `semantic-release` plugin, which adjusts the version in the `jsr.json` file and executes 
 `jsr publish` to publish the module on jsr.io as well.
 
-## 🚨 Work in Progress
-
-This plugin is still very fresh and therefore anything but stable or reliable. Please only use it 
-if you don't mind failing releases.
-
-
 ## 📦 Install
 
 ```bash
 # Install via npm
-$ npm install -D @sebbo2002/semantic-release-jsr@next
+$ npm install -D @sebbo2002/semantic-release-jsr
 ```
 
 
@@ -40,12 +34,12 @@ plugin, which are documented [here](https://sebbo2002.github.io/semantic-release
 
 ## ⚙️ Steps
 
-| Step                 | Description                                                                               |
-|----------------------|-------------------------------------------------------------------------------------------|
+| Step                 | Description                                                                                  |
+|----------------------|----------------------------------------------------------------------------------------------|
 | `verifyConditions`   | Runs `jsr publish --dry-run` to test your setup. Also downloads the deno binary if required. |
-| `prepare`            | Update the `jsr.json` / `deno.json` files                                                 |
-| `publish`            | Run final `jsr publish` command                                                           |
-| `fail` / `success`   | Remove the temporary folder                                                               |
+| `prepare`            | Updates the `jsr.json` / `deno.json` files                                                   |
+| `publish`            | Run final `jsr publish` command                                                              |
+| `fail` / `success`   | Remove the temporary folder                                                                  |
 
 ## 🙆🏼‍♂️ Copyright and license
 
