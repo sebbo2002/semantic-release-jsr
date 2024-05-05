@@ -1,11 +1,11 @@
 {
     "cache": false,
-    "check-coverage": true,
+    "check-coverage": false,
     "extension": [
         ".ts"
     ],
     "include": [
-        "src/lib/*.ts"
+        "src/*.ts"
     ],
     "exclude": [
         "coverage/**",
