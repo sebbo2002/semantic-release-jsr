@@ -5,8 +5,8 @@
     "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2024-04-16T19:52:46.993Z",
-    "end": "2024-04-16T19:52:46.998Z",
+    "start": "2024-05-05T09:48:32.692Z",
+    "end": "2024-05-05T09:48:32.697Z",
     "duration": 5,
     "testsRegistered": 2,
     "passPercent": 100,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "aadb5817-1d91-4276-824b-740950961234",
+      "uuid": "d15b7a3e-c608-4b72-a6a9-4224c2dcf1ac",
       "title": "",
       "fullFile": "/home/runner/work/semantic-release-jsr/semantic-release-jsr/test/lib/utils.ts",
       "file": "/test/lib/utils.ts",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "8c8a871d-a7f3-4d4f-be2d-cf930382fb15",
+          "uuid": "4f133d7e-1abd-4148-a8e9-e1544dc4d59d",
           "title": "Utils",
           "fullFile": "/home/runner/work/semantic-release-jsr/semantic-release-jsr/test/lib/utils.ts",
           "file": "/test/lib/utils.ts",
@@ -36,7 +36,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "cad615d0-ac35-498b-b8b0-c74ad1c94891",
+              "uuid": "897f6ace-274a-4f54-a61f-a7b8c40ecfd5",
               "title": "generatePublishResponse()",
               "fullFile": "/home/runner/work/semantic-release-jsr/semantic-release-jsr/test/lib/utils.ts",
               "file": "/test/lib/utils.ts",
@@ -56,8 +56,8 @@
                   "context": null,
                   "code": "const config = {\n    cwd: process.cwd(),\n    name: '@sebbo2002/ical-generator',\n    prepare: {\n        versionJsonPaths: []\n    },\n    publish: {\n        binFolder: '',\n        pkgJsonPath: '',\n        publishArgs: []\n    }\n};\nconst context = {\n    nextRelease: {\n        version: '1.2.3',\n        gitTag: 'v1.2.3',\n        name: 'v1.2.3',\n        type: 'patch',\n        channel: '',\n        gitHead: '',\n        notes: '# [1.2.3](…)'\n    }\n};\nconst response = generatePublishResponse(config, context);\nassert.deepStrictEqual(response, {\n    name: 'JSR.io',\n    url: 'https://jsr.io/@sebbo2002/ical-generator@1.2.3'\n});",
                   "err": {},
-                  "uuid": "1f6c6b98-79dd-42d2-8596-2736220f2808",
-                  "parentUUID": "cad615d0-ac35-498b-b8b0-c74ad1c94891",
+                  "uuid": "2c9fdbee-9887-43ed-aa04-4aec1ee34c0c",
+                  "parentUUID": "897f6ace-274a-4f54-a61f-a7b8c40ecfd5",
                   "isHook": false,
                   "skipped": false
                 },
@@ -74,16 +74,16 @@
                   "context": null,
                   "code": "const config = {\n    cwd: process.cwd(),\n    name: '@sebbo2002/ical-generator',\n    prepare: {\n        versionJsonPaths: []\n    },\n    publish: {\n        binFolder: '',\n        pkgJsonPath: '',\n        publishArgs: []\n    }\n};\nconst context = {};\nconst response = generatePublishResponse(config, context);\nassert.deepStrictEqual(response, {\n    name: 'JSR.io',\n    url: 'https://jsr.io/@sebbo2002/ical-generator/versions'\n});",
                   "err": {},
-                  "uuid": "a4098570-06ad-4ebf-8cbf-722051be6661",
-                  "parentUUID": "cad615d0-ac35-498b-b8b0-c74ad1c94891",
+                  "uuid": "35d2b93e-5ce1-474a-9b9e-127f958f5484",
+                  "parentUUID": "897f6ace-274a-4f54-a61f-a7b8c40ecfd5",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "1f6c6b98-79dd-42d2-8596-2736220f2808",
-                "a4098570-06ad-4ebf-8cbf-722051be6661"
+                "2c9fdbee-9887-43ed-aa04-4aec1ee34c0c",
+                "35d2b93e-5ce1-474a-9b9e-127f958f5484"
               ],
               "failures": [],
               "pending": [],
