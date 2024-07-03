@@ -87,7 +87,6 @@ describe('Utils', function () {
         let tmpDir: string;
         let filePath: string;
 
-
         beforeEach(async () => {
             tmpDir = await mkdtemp(
                 join(tmpdir(), 'semantic-release-jsr-'),
@@ -161,9 +160,7 @@ describe('Utils', function () {
             });
         });
         describe('same version', function () {
-
             it('should skip when version is already up to date', async function () {
-
                 const mockFile = '{ "version": "1.2.3" }';
 
                 await writeFile(filePath, mockFile, 'utf8');
