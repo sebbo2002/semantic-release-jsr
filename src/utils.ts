@@ -89,14 +89,21 @@ export async function updateVersionJson (file: string, context: VerifyReleaseCon
 
     context.logger.log(`Updating version in ${file}`);
     const content = await readFile(file, 'utf8');
-    const json = JSON.parse(content);
-    if (json.version === context.nextRelease.version) {
-        context.logger.log(`Skipped, ${file} is already up to date`);
-        return;
+
+    const versionRegex = /("version"\s*:\s*")(\d+\.\d+\.\d+)(")/;
+    const currentVersionMatch = content.match(versionRegex);
+    const nextVersion = context.nextRelease.version;
+    if (currentVersionMatch && currentVersionMatch.length > 2) {
+        const currentVersion = currentVersionMatch[2];
+        if (currentVersion === nextVersion) {
+            context.logger.log(`Skipped, ${file} is already up to date`);
+            return;
+        }
     }
 
-    json.version = context.nextRelease.version;
-    await writeFile(file, JSON.stringify(json, null, 2));
+    const updatedContent = content.replace(versionRegex, `$1${nextVersion}$3`);
+
+    await writeFile(file, updatedContent, 'utf8');
     context.logger.log(`Wrote new version to ${file}`);
 }
 
