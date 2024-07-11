@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">69.53% </span>
+                <span class="strong">81.06% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>89/128</span>
+                <span class='fraction'>107/132</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">41.66% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>5/12</span>
+                <span class='fraction'>8/16</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.66% </span>
+                <span class="strong">83.33% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>4/6</span>
+                <span class='fraction'>5/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">69.53% </span>
+                <span class="strong">81.06% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>89/128</span>
+                <span class='fraction'>107/132</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -191,7 +191,11 @@
 <a name='L126'></a><a href='#L126'>126</a>
 <a name='L127'></a><a href='#L127'>127</a>
 <a name='L128'></a><a href='#L128'>128</a>
-<a name='L129'></a><a href='#L129'>129</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L129'></a><a href='#L129'>129</a>
+<a name='L130'></a><a href='#L130'>130</a>
+<a name='L131'></a><a href='#L131'>131</a>
+<a name='L132'></a><a href='#L132'>132</a>
+<a name='L133'></a><a href='#L133'>133</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -276,22 +280,26 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -403,23 +411,27 @@ export async function removeTemporaryBinFolder () {
     }
 }
 &nbsp;
-export<span class="fstat-no" title="function not covered" > async function updateVersionJson (file: string, context: VerifyReleaseContext) {</span>
-<span class="cstat-no" title="statement not covered" >    if (!context.nextRelease) {</span>
+export async function updateVersionJson (file: string, context: VerifyReleaseContext) {
+    if (!context.nextRelease) <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
 <span class="cstat-no" title="statement not covered" >        return;</span>
 <span class="cstat-no" title="statement not covered" >    }</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    context.logger.log(`Updating version in ${file}`);</span>
-<span class="cstat-no" title="statement not covered" >    const content = await readFile(file, 'utf8');</span>
-<span class="cstat-no" title="statement not covered" >    const json = JSON.parse(content);</span>
-<span class="cstat-no" title="statement not covered" >    if (json.version === context.nextRelease.version) {</span>
-<span class="cstat-no" title="statement not covered" >        context.logger.log(`Skipped, ${file} is already up to date`);</span>
-<span class="cstat-no" title="statement not covered" >        return;</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    json.version = context.nextRelease.version;</span>
-<span class="cstat-no" title="statement not covered" >    await writeFile(file, JSON.stringify(json, null, 2));</span>
-<span class="cstat-no" title="statement not covered" >    context.logger.log(`Wrote new version to ${file}`);</span>
-<span class="cstat-no" title="statement not covered" >}</span>
+&nbsp;
+    context.logger.log(`Updating version in ${file}`);
+    const content = await readFile(file, 'utf8');
+    const json = JSON.parse(content);
+    if (json.version === context.nextRelease.version) {
+        context.logger.log(`Skipped, ${file} is already up to date`);
+        return;
+    }
+&nbsp;
+    const versionRegex = /("version"\s*:\s*")(\d+\.\d+\.\d+)(")/;
+    const nextVersion = context.nextRelease.version;
+&nbsp;
+    const updatedContent = content.replace(versionRegex, `$1${nextVersion}$3`);
+&nbsp;
+    await writeFile(file, updatedContent, 'utf8');
+    context.logger.log(`Wrote new version to ${file}`);
+}
 &nbsp;
 export<span class="fstat-no" title="function not covered" > async function publish (config: NormalizedPluginConfig, context: VerifyConditionsContext): Promise&lt;void&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    context.logger.log(`Run jsr publish in ${config.cwd} with ${JSON.stringify(config.publish)}`);</span>
@@ -454,7 +466,7 @@ export function generatePublishResponse (config: NormalizedPluginConfig, context
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-05-05T09:51:08.747Z
+                at 2024-07-11T16:34:07.766Z
             </div>
         <script src="prettify.js"></script>
         <script>
