@@ -95,8 +95,12 @@ export async function updateVersionJson (file: string, context: VerifyReleaseCon
         return;
     }
 
-    json.version = context.nextRelease.version;
-    await writeFile(file, JSON.stringify(json, null, 2));
+    const versionRegex = /("version"\s*:\s*")(\d+\.\d+\.\d+)(")/;
+    const nextVersion = context.nextRelease.version;
+
+    const updatedContent = content.replace(versionRegex, `$1${nextVersion}$3`);
+
+    await writeFile(file, updatedContent, 'utf8');
     context.logger.log(`Wrote new version to ${file}`);
 }
 
