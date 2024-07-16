@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/sebbo2002/semantic-release-jsr/compare/v1.0.0...v1.0.1) (2024-07-16)
+
+
+### Bug Fixes
+
+* Do not overwrite whole file when updating version ([50d8e2d](https://github.com/sebbo2002/semantic-release-jsr/commit/50d8e2d38dd34325c7dfd0675869c883f7aefe59)), closes [#10](https://github.com/sebbo2002/semantic-release-jsr/issues/10)
+
 # 1.0.0 (2024-05-05)
 
 
