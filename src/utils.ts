@@ -95,7 +95,7 @@ export async function updateVersionJson (file: string, context: VerifyReleaseCon
         return;
     }
 
-    const versionRegex = /("version"\s*:\s*")(\d+\.\d+\.\d+)(")/;
+    const versionRegex = /^([\s\S]*"version"\s*:\s*")([^"]+)("[\s\S]*$)/;
     const nextVersion = context.nextRelease.version;
 
     const updatedContent = content.replace(versionRegex, `$1${nextVersion}$3`);
