@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="254" lines-covered="155" line-rate="0.6102000000000001" branches-valid="17" branches-covered="8" branch-rate="0.4705" timestamp="1720715647760" complexity="0" version="0.1">
+<coverage lines-valid="254" lines-covered="155" line-rate="0.6102000000000001" branches-valid="17" branches-covered="8" branch-rate="0.4705" timestamp="1721997369015" complexity="0" version="0.1">
   <sources>
     <source>/home/runner/work/semantic-release-jsr/semantic-release-jsr</source>
   </sources>
@@ -194,9 +194,9 @@
                 <line number="78" hits="1"/>
               </lines>
             </method>
-            <method name="updateVersionJson" hits="4" signature="()V">
+            <method name="updateVersionJson" hits="5" signature="()V">
               <lines>
-                <line number="85" hits="4"/>
+                <line number="85" hits="5"/>
               </lines>
             </method>
             <method name="publish" hits="0" signature="()V">
@@ -296,26 +296,26 @@
             <line number="83" hits="1" branch="false"/>
             <line number="84" hits="1" branch="false"/>
             <line number="85" hits="1" branch="true" condition-coverage="100% (1/1)"/>
-            <line number="86" hits="4" branch="true" condition-coverage="0% (0/1)"/>
+            <line number="86" hits="5" branch="true" condition-coverage="0% (0/1)"/>
             <line number="87" hits="0" branch="false"/>
             <line number="88" hits="0" branch="false"/>
-            <line number="89" hits="4" branch="false"/>
-            <line number="90" hits="4" branch="false"/>
-            <line number="91" hits="4" branch="false"/>
-            <line number="92" hits="4" branch="false"/>
-            <line number="93" hits="4" branch="true" condition-coverage="100% (1/1)"/>
+            <line number="89" hits="5" branch="false"/>
+            <line number="90" hits="5" branch="false"/>
+            <line number="91" hits="5" branch="false"/>
+            <line number="92" hits="5" branch="false"/>
+            <line number="93" hits="5" branch="true" condition-coverage="100% (1/1)"/>
             <line number="94" hits="1" branch="false"/>
             <line number="95" hits="1" branch="false"/>
             <line number="96" hits="1" branch="false"/>
-            <line number="97" hits="3" branch="true" condition-coverage="100% (1/1)"/>
-            <line number="98" hits="3" branch="false"/>
-            <line number="99" hits="3" branch="false"/>
-            <line number="100" hits="3" branch="false"/>
-            <line number="101" hits="3" branch="false"/>
-            <line number="102" hits="3" branch="false"/>
-            <line number="103" hits="3" branch="false"/>
-            <line number="104" hits="3" branch="false"/>
-            <line number="105" hits="3" branch="false"/>
+            <line number="97" hits="4" branch="true" condition-coverage="100% (1/1)"/>
+            <line number="98" hits="4" branch="false"/>
+            <line number="99" hits="4" branch="false"/>
+            <line number="100" hits="4" branch="false"/>
+            <line number="101" hits="4" branch="false"/>
+            <line number="102" hits="4" branch="false"/>
+            <line number="103" hits="4" branch="false"/>
+            <line number="104" hits="4" branch="false"/>
+            <line number="105" hits="4" branch="false"/>
             <line number="106" hits="1" branch="false"/>
             <line number="107" hits="1" branch="false"/>
             <line number="108" hits="0" branch="false"/>
