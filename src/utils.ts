@@ -87,7 +87,8 @@ export async function updateVersionJson (file: string, context: VerifyReleaseCon
         return;
     }
 
-    context.logger.log(`Updating version in ${file}`);
+    const nextVersion = context.nextRelease.version;
+    context.logger.log(`Updating version ${nextVersion} in ${file}`);
     const content = await readFile(file, 'utf8');
     const json = JSON.parse(content);
     if (json.version === context.nextRelease.version) {
@@ -96,12 +97,11 @@ export async function updateVersionJson (file: string, context: VerifyReleaseCon
     }
 
     const versionRegex = /("version"\s*:\s*")(\d+\.\d+\.\d+)(")/;
-    const nextVersion = context.nextRelease.version;
 
     const updatedContent = content.replace(versionRegex, `$1${nextVersion}$3`);
 
     await writeFile(file, updatedContent, 'utf8');
-    context.logger.log(`Wrote new version to ${file}`);
+    context.logger.log(`Wrote new version ${nextVersion} to ${file}`);
 }
 
 export async function publish (config: NormalizedPluginConfig, context: VerifyConditionsContext): Promise<void> {
