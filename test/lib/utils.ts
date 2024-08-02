@@ -213,5 +213,21 @@ describe('Utils', function () {
                 assert.ok(matched);
             });
         });
+
+        it('should throw an error if the version could not be replaced', async function () {
+            const mockFile = '{}';
+            await writeFile(filePath, mockFile, 'utf8');
+
+            const context = {
+                nextRelease: {
+                    version: '1.2.3',
+                },
+                logger: {
+                    log: () => {},
+                },
+            } as never;
+
+            await assert.rejects(updateVersionJson(filePath, context), /Failed to replace version in/);
+        });
     });
 });
