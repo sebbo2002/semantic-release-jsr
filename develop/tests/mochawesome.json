@@ -5,9 +5,9 @@
     "passes": 8,
     "pending": 0,
     "failures": 0,
-    "start": "2024-08-02T18:41:12.311Z",
-    "end": "2024-08-02T18:41:12.333Z",
-    "duration": 22,
+    "start": "2024-08-03T19:21:15.293Z",
+    "end": "2024-08-03T19:21:15.314Z",
+    "duration": 21,
     "testsRegistered": 8,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "e3749fa0-b452-4d9f-89c8-b9df2c2568c3",
+      "uuid": "2fca37a3-f5d6-4704-bf7b-485b07c4dde1",
       "title": "",
       "fullFile": "/home/runner/work/semantic-release-jsr/semantic-release-jsr/test/lib/utils.ts",
       "file": "/test/lib/utils.ts",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "131461b5-8037-45d9-b0bd-daa2ccd8c6ac",
+          "uuid": "aec0a765-2be4-4edb-82cb-2373b4a1d5b3",
           "title": "Utils",
           "fullFile": "/home/runner/work/semantic-release-jsr/semantic-release-jsr/test/lib/utils.ts",
           "file": "/test/lib/utils.ts",
@@ -36,7 +36,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "b94d6c34-5b20-448b-b518-ae53b1e89a51",
+              "uuid": "d73cdeb9-cc9a-4528-80dd-63155b61596c",
               "title": "generatePublishResponse()",
               "fullFile": "/home/runner/work/semantic-release-jsr/semantic-release-jsr/test/lib/utils.ts",
               "file": "/test/lib/utils.ts",
@@ -54,10 +54,10 @@
                   "fail": false,
                   "pending": false,
                   "context": null,
-                  "code": "const config = {\n    cwd: process.cwd(),\n    name: '@sebbo2002/ical-generator',\n    prepare: {\n        versionJsonPaths: []\n    },\n    publish: {\n        binFolder: '',\n        pkgJsonPath: '',\n        publishArgs: []\n    }\n};\nconst context = {\n    nextRelease: {\n        version: '1.2.3',\n        gitTag: 'v1.2.3',\n        name: 'v1.2.3',\n        type: 'patch',\n        channel: '',\n        gitHead: '',\n        notes: '# [1.2.3](…)'\n    }\n};\nconst response = generatePublishResponse(config, context);\nassert.deepStrictEqual(response, {\n    name: 'JSR.io',\n    url: 'https://jsr.io/@sebbo2002/ical-generator@1.2.3'\n});",
+                  "code": "const config = {\n    cwd: process.cwd(),\n    name: '@sebbo2002/ical-generator',\n    prepare: {\n        versionJsonPaths: []\n    },\n    publish: {\n        binFolder: '',\n        canary: false,\n        pkgJsonPath: '',\n        publishArgs: []\n    }\n};\nconst context = {\n    nextRelease: {\n        version: '1.2.3',\n        gitTag: 'v1.2.3',\n        name: 'v1.2.3',\n        type: 'patch',\n        channel: '',\n        gitHead: '',\n        notes: '# [1.2.3](…)'\n    }\n};\nconst response = generatePublishResponse(config, context);\nassert.deepStrictEqual(response, {\n    name: 'JSR.io',\n    url: 'https://jsr.io/@sebbo2002/ical-generator@1.2.3'\n});",
                   "err": {},
-                  "uuid": "3fe9e011-fa11-4411-b679-1d42ee6ff36f",
-                  "parentUUID": "b94d6c34-5b20-448b-b518-ae53b1e89a51",
+                  "uuid": "94f1273f-9fc7-4771-8985-6d7711c928af",
+                  "parentUUID": "d73cdeb9-cc9a-4528-80dd-63155b61596c",
                   "isHook": false,
                   "skipped": false
                 },
@@ -65,36 +65,36 @@
                   "title": "should work without release",
                   "fullTitle": "Utils generatePublishResponse() should work without release",
                   "timedOut": false,
-                  "duration": 1,
+                  "duration": 0,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
                   "fail": false,
                   "pending": false,
                   "context": null,
-                  "code": "const config = {\n    cwd: process.cwd(),\n    name: '@sebbo2002/ical-generator',\n    prepare: {\n        versionJsonPaths: []\n    },\n    publish: {\n        binFolder: '',\n        pkgJsonPath: '',\n        publishArgs: []\n    }\n};\nconst context = {};\nconst response = generatePublishResponse(config, context);\nassert.deepStrictEqual(response, {\n    name: 'JSR.io',\n    url: 'https://jsr.io/@sebbo2002/ical-generator/versions'\n});",
+                  "code": "const config = {\n    cwd: process.cwd(),\n    name: '@sebbo2002/ical-generator',\n    prepare: {\n        versionJsonPaths: []\n    },\n    publish: {\n        binFolder: '',\n        canary: false,\n        pkgJsonPath: '',\n        publishArgs: []\n    }\n};\nconst context = {};\nconst response = generatePublishResponse(config, context);\nassert.deepStrictEqual(response, {\n    name: 'JSR.io',\n    url: 'https://jsr.io/@sebbo2002/ical-generator/versions'\n});",
                   "err": {},
-                  "uuid": "0e32e983-bba7-486e-8d76-17fc5aa6a9b3",
-                  "parentUUID": "b94d6c34-5b20-448b-b518-ae53b1e89a51",
+                  "uuid": "25afb50b-12c4-48bd-a923-d5071952290d",
+                  "parentUUID": "d73cdeb9-cc9a-4528-80dd-63155b61596c",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "3fe9e011-fa11-4411-b679-1d42ee6ff36f",
-                "0e32e983-bba7-486e-8d76-17fc5aa6a9b3"
+                "94f1273f-9fc7-4771-8985-6d7711c928af",
+                "25afb50b-12c4-48bd-a923-d5071952290d"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 1,
+              "duration": 0,
               "root": false,
               "rootEmpty": false,
               "_timeout": 2000
             },
             {
-              "uuid": "60633acc-6efd-49bd-b365-b7cc5bbb5e21",
+              "uuid": "6a94f2b5-0dcc-4cc5-8156-d620d3b36aca",
               "title": "updateVersionJson()",
               "fullFile": "/home/runner/work/semantic-release-jsr/semantic-release-jsr/test/lib/utils.ts",
               "file": "/test/lib/utils.ts",
@@ -110,10 +110,10 @@
                   "fail": false,
                   "pending": false,
                   "context": null,
-                  "code": "__awaiter(this, void 0, void 0, function* () {\n                tmpDir = yield mkdtemp(join(tmpdir(), 'semantic-release-jsr-'));\n                filePath = join(tmpDir, 'package.json');\n            })",
+                  "code": "tmpDir = await mkdtemp(join(tmpdir(), 'semantic-release-jsr-'));\nfilePath = join(tmpDir, 'package.json');",
                   "err": {},
-                  "uuid": "52de7bc8-2d83-4cfa-b83f-90ae0bb6bf66",
-                  "parentUUID": "60633acc-6efd-49bd-b365-b7cc5bbb5e21",
+                  "uuid": "407a46ad-267f-4ea4-9ce0-20c88ddb2cfc",
+                  "parentUUID": "6a94f2b5-0dcc-4cc5-8156-d620d3b36aca",
                   "isHook": true,
                   "skipped": false
                 }
@@ -130,10 +130,10 @@
                   "fail": false,
                   "pending": false,
                   "context": null,
-                  "code": "__awaiter(this, void 0, void 0, function* () {\n                yield rm(tmpDir, { recursive: true, force: true });\n            })",
+                  "code": "await rm(tmpDir, { recursive: true, force: true });",
                   "err": {},
-                  "uuid": "b9f754bd-572e-40dc-8b72-b13275d72ae7",
-                  "parentUUID": "60633acc-6efd-49bd-b365-b7cc5bbb5e21",
+                  "uuid": "997c063b-465f-4713-a8af-7911be52e3b1",
+                  "parentUUID": "6a94f2b5-0dcc-4cc5-8156-d620d3b36aca",
                   "isHook": true,
                   "skipped": false
                 }
@@ -150,17 +150,17 @@
                   "fail": false,
                   "pending": false,
                   "context": null,
-                  "code": "return __awaiter(this, void 0, void 0, function* () {\n    const mockFile = '{}';\n    yield writeFile(filePath, mockFile, 'utf8');\n    const context = {\n        nextRelease: {\n            version: '1.2.3',\n        },\n        logger: {\n            log: () => { },\n        },\n    };\n    yield assert.rejects(updateVersionJson(filePath, context), /Failed to replace version in/);\n});",
+                  "code": "const mockFile = '{}';\nawait writeFile(filePath, mockFile, 'utf8');\nconst context = {\n    nextRelease: {\n        version: '1.2.3',\n    },\n    logger: {\n        log: () => { },\n    },\n};\nawait assert.rejects(updateVersionJson(filePath, context), /Failed to replace version in/);",
                   "err": {},
-                  "uuid": "01999d32-c1c0-4f1a-8ba4-d810d1502185",
-                  "parentUUID": "60633acc-6efd-49bd-b365-b7cc5bbb5e21",
+                  "uuid": "2764ceed-7a6c-416f-81db-969b2f8274c5",
+                  "parentUUID": "6a94f2b5-0dcc-4cc5-8156-d620d3b36aca",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [
                 {
-                  "uuid": "e4582e98-9043-4261-9928-2164e55d984e",
+                  "uuid": "75023650-2c6b-48b6-8794-cd5d34f03ee9",
                   "title": "different version",
                   "fullFile": "/home/runner/work/semantic-release-jsr/semantic-release-jsr/test/lib/utils.ts",
                   "file": "/test/lib/utils.ts",
@@ -171,17 +171,17 @@
                       "title": "should update version if they are different",
                       "fullTitle": "Utils updateVersionJson() different version should update version if they are different",
                       "timedOut": false,
-                      "duration": 3,
+                      "duration": 1,
                       "state": "passed",
                       "speed": "fast",
                       "pass": true,
                       "fail": false,
                       "pending": false,
                       "context": null,
-                      "code": "return __awaiter(this, void 0, void 0, function* () {\n    const mockFile = '{ \"version\": \"1.2.3\" }';\n    yield writeFile(filePath, mockFile, 'utf8');\n    const context = {\n        nextRelease: {\n            version: '1.2.4',\n        },\n        logger: {\n            log: () => { },\n        },\n    };\n    yield updateVersionJson(filePath, context);\n    const updatedFile = yield readFile(filePath, 'utf8');\n    assert.strictEqual(updatedFile, '{ \"version\": \"1.2.4\" }');\n});",
+                      "code": "const mockFile = '{ \"version\": \"1.2.3\" }';\nawait writeFile(filePath, mockFile, 'utf8');\nconst context = {\n    nextRelease: {\n        version: '1.2.4',\n    },\n    logger: {\n        log: () => { },\n    },\n};\nawait updateVersionJson(filePath, context);\nconst updatedFile = await readFile(filePath, 'utf8');\nassert.strictEqual(updatedFile, '{ \"version\": \"1.2.4\" }');",
                       "err": {},
-                      "uuid": "6e628c41-1739-4191-ba94-75370f98e0a6",
-                      "parentUUID": "e4582e98-9043-4261-9928-2164e55d984e",
+                      "uuid": "2c00d847-cc89-457f-b2ba-ab79ecdbdcf6",
+                      "parentUUID": "75023650-2c6b-48b6-8794-cd5d34f03ee9",
                       "isHook": false,
                       "skipped": false
                     },
@@ -196,10 +196,10 @@
                       "fail": false,
                       "pending": false,
                       "context": null,
-                      "code": "return __awaiter(this, void 0, void 0, function* () {\n    const mockFile = '{\"version\":\"1.2.3\"}';\n    yield writeFile(filePath, mockFile, 'utf8');\n    const context = {\n        nextRelease: {\n            version: '1.2.4',\n        },\n        logger: {\n            log: () => { },\n        },\n    };\n    yield updateVersionJson(filePath, context);\n    const updatedFile = yield readFile(filePath, 'utf8');\n    assert.strictEqual(updatedFile, '{\"version\":\"1.2.4\"}');\n});",
+                      "code": "const mockFile = '{\"version\":\"1.2.3\"}';\nawait writeFile(filePath, mockFile, 'utf8');\nconst context = {\n    nextRelease: {\n        version: '1.2.4',\n    },\n    logger: {\n        log: () => { },\n    },\n};\nawait updateVersionJson(filePath, context);\nconst updatedFile = await readFile(filePath, 'utf8');\nassert.strictEqual(updatedFile, '{\"version\":\"1.2.4\"}');",
                       "err": {},
-                      "uuid": "ba86fc29-4cc6-4718-8364-5c0fda61d6aa",
-                      "parentUUID": "e4582e98-9043-4261-9928-2164e55d984e",
+                      "uuid": "f027688f-7fa1-49a2-b213-05237046e9db",
+                      "parentUUID": "75023650-2c6b-48b6-8794-cd5d34f03ee9",
                       "isHook": false,
                       "skipped": false
                     },
@@ -207,17 +207,17 @@
                       "title": "should update version if they are different (mixed whitespace)",
                       "fullTitle": "Utils updateVersionJson() different version should update version if they are different (mixed whitespace)",
                       "timedOut": false,
-                      "duration": 1,
+                      "duration": 3,
                       "state": "passed",
                       "speed": "fast",
                       "pass": true,
                       "fail": false,
                       "pending": false,
                       "context": null,
-                      "code": "return __awaiter(this, void 0, void 0, function* () {\n    const mockFile = '{\"version\"   :\"1.2.3\"   }';\n    yield writeFile(filePath, mockFile, 'utf8');\n    const context = {\n        nextRelease: {\n            version: '1.2.4',\n        },\n        logger: {\n            log: () => { },\n        },\n    };\n    yield updateVersionJson(filePath, context);\n    const updatedFile = yield readFile(filePath, 'utf8');\n    assert.strictEqual(updatedFile, '{\"version\"   :\"1.2.4\"   }');\n});",
+                      "code": "const mockFile = '{\"version\"   :\"1.2.3\"   }';\nawait writeFile(filePath, mockFile, 'utf8');\nconst context = {\n    nextRelease: {\n        version: '1.2.4',\n    },\n    logger: {\n        log: () => { },\n    },\n};\nawait updateVersionJson(filePath, context);\nconst updatedFile = await readFile(filePath, 'utf8');\nassert.strictEqual(updatedFile, '{\"version\"   :\"1.2.4\"   }');",
                       "err": {},
-                      "uuid": "95df83e0-bddc-4da3-b6b5-00e4a8e5cd6b",
-                      "parentUUID": "e4582e98-9043-4261-9928-2164e55d984e",
+                      "uuid": "4301ac0e-8f8f-425a-a352-0e8423e8acb5",
+                      "parentUUID": "75023650-2c6b-48b6-8794-cd5d34f03ee9",
                       "isHook": false,
                       "skipped": false
                     },
@@ -232,20 +232,20 @@
                       "fail": false,
                       "pending": false,
                       "context": null,
-                      "code": "return __awaiter(this, void 0, void 0, function* () {\n    const mockFile = '{ \"version\": \"1.2.3-beta.3\" }';\n    yield writeFile(filePath, mockFile, 'utf8');\n    const context = {\n        nextRelease: {\n            version: '1.2.3-beta.4',\n        },\n        logger: {\n            log: () => { },\n        },\n    };\n    yield updateVersionJson(filePath, context);\n    const updatedFile = yield readFile(filePath, 'utf8');\n    assert.strictEqual(updatedFile, '{ \"version\": \"1.2.3-beta.4\" }');\n});",
+                      "code": "const mockFile = '{ \"version\": \"1.2.3-beta.3\" }';\nawait writeFile(filePath, mockFile, 'utf8');\nconst context = {\n    nextRelease: {\n        version: '1.2.3-beta.4',\n    },\n    logger: {\n        log: () => { },\n    },\n};\nawait updateVersionJson(filePath, context);\nconst updatedFile = await readFile(filePath, 'utf8');\nassert.strictEqual(updatedFile, '{ \"version\": \"1.2.3-beta.4\" }');",
                       "err": {},
-                      "uuid": "6bad99e4-d9ae-40db-b3f9-6e2efc3341df",
-                      "parentUUID": "e4582e98-9043-4261-9928-2164e55d984e",
+                      "uuid": "e64aba06-ed88-4842-b21f-6c85f16018b6",
+                      "parentUUID": "75023650-2c6b-48b6-8794-cd5d34f03ee9",
                       "isHook": false,
                       "skipped": false
                     }
                   ],
                   "suites": [],
                   "passes": [
-                    "6e628c41-1739-4191-ba94-75370f98e0a6",
-                    "ba86fc29-4cc6-4718-8364-5c0fda61d6aa",
-                    "95df83e0-bddc-4da3-b6b5-00e4a8e5cd6b",
-                    "6bad99e4-d9ae-40db-b3f9-6e2efc3341df"
+                    "2c00d847-cc89-457f-b2ba-ab79ecdbdcf6",
+                    "f027688f-7fa1-49a2-b213-05237046e9db",
+                    "4301ac0e-8f8f-425a-a352-0e8423e8acb5",
+                    "e64aba06-ed88-4842-b21f-6c85f16018b6"
                   ],
                   "failures": [],
                   "pending": [],
@@ -256,7 +256,7 @@
                   "_timeout": 2000
                 },
                 {
-                  "uuid": "93304d15-bfd4-4b42-9b12-d60229dda9cd",
+                  "uuid": "05ea0c93-e184-4400-8558-ae66a112a910",
                   "title": "same version",
                   "fullFile": "/home/runner/work/semantic-release-jsr/semantic-release-jsr/test/lib/utils.ts",
                   "file": "/test/lib/utils.ts",
@@ -274,17 +274,17 @@
                       "fail": false,
                       "pending": false,
                       "context": null,
-                      "code": "return __awaiter(this, void 0, void 0, function* () {\n    const mockFile = '{ \"version\": \"1.2.3\" }';\n    yield writeFile(filePath, mockFile, 'utf8');\n    let matched = false;\n    const context = {\n        nextRelease: {\n            version: '1.2.3',\n        },\n        logger: {\n            log: (msg) => {\n                if (typeof msg === 'string') {\n                    const match = msg.match(/Skipped, (.+) is already up to date/);\n                    if (match) {\n                        assert.strictEqual(match[1], filePath);\n                        matched = true;\n                    }\n                }\n            },\n        },\n    };\n    yield updateVersionJson(filePath, context);\n    const updatedFile = yield readFile(filePath, 'utf8');\n    assert.strictEqual(updatedFile, mockFile);\n    assert.ok(matched);\n});",
+                      "code": "const mockFile = '{ \"version\": \"1.2.3\" }';\nawait writeFile(filePath, mockFile, 'utf8');\nlet matched = false;\nconst context = {\n    nextRelease: {\n        version: '1.2.3',\n    },\n    logger: {\n        log: (msg) => {\n            if (typeof msg === 'string') {\n                const match = msg.match(/Skipped, (.+) is already up to date/);\n                if (match) {\n                    assert.strictEqual(match[1], filePath);\n                    matched = true;\n                }\n            }\n        },\n    },\n};\nawait updateVersionJson(filePath, context);\nconst updatedFile = await readFile(filePath, 'utf8');\nassert.strictEqual(updatedFile, mockFile);\nassert.ok(matched);",
                       "err": {},
-                      "uuid": "8cacc2cb-d0b1-4d26-a04c-c009d8334e22",
-                      "parentUUID": "93304d15-bfd4-4b42-9b12-d60229dda9cd",
+                      "uuid": "146b49a7-18ee-4a63-a967-28083abda54d",
+                      "parentUUID": "05ea0c93-e184-4400-8558-ae66a112a910",
                       "isHook": false,
                       "skipped": false
                     }
                   ],
                   "suites": [],
                   "passes": [
-                    "8cacc2cb-d0b1-4d26-a04c-c009d8334e22"
+                    "146b49a7-18ee-4a63-a967-28083abda54d"
                   ],
                   "failures": [],
                   "pending": [],
@@ -296,7 +296,7 @@
                 }
               ],
               "passes": [
-                "01999d32-c1c0-4f1a-8ba4-d810d1502185"
+                "2764ceed-7a6c-416f-81db-969b2f8274c5"
               ],
               "failures": [],
               "pending": [],
@@ -329,7 +329,7 @@
   ],
   "meta": {
     "mocha": {
-      "version": "10.4.0"
+      "version": "10.7.0"
     },
     "mochawesome": {
       "options": {
