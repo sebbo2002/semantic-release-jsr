@@ -58,6 +58,7 @@ export async function parseConfig (config: PluginConfig): Promise<NormalizedPlug
         },
         publish: {
             binFolder: getTemporaryBinFolder(),
+            canary: false,
             pkgJsonPath: pkgJsonPath,
             publishArgs
         }

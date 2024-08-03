@@ -39,6 +39,7 @@ describe('Utils', function () {
                 },
                 publish: {
                     binFolder: '',
+                    canary: false,
                     pkgJsonPath: '',
                     publishArgs: []
                 }
@@ -70,6 +71,7 @@ describe('Utils', function () {
                 },
                 publish: {
                     binFolder: '',
+                    canary: false,
                     pkgJsonPath: '',
                     publishArgs: []
                 }
