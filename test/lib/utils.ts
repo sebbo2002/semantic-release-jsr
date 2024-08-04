@@ -39,6 +39,7 @@ describe('Utils', function () {
                 },
                 publish: {
                     binFolder: '',
+                    canary: false,
                     pkgJsonPath: '',
                     publishArgs: []
                 }
@@ -70,6 +71,7 @@ describe('Utils', function () {
                 },
                 publish: {
                     binFolder: '',
+                    canary: false,
                     pkgJsonPath: '',
                     publishArgs: []
                 }
@@ -158,6 +160,27 @@ describe('Utils', function () {
 
                 assert.strictEqual(updatedFile, '{"version"   :"1.2.4"   }');
             });
+
+            it('should update version if they are different (beta version)', async function () {
+                const mockFile = '{ "version": "1.2.3-beta.3" }';
+
+                await writeFile(filePath, mockFile, 'utf8');
+
+                const context = {
+                    nextRelease: {
+                        version: '1.2.3-beta.4',
+                    },
+                    logger: {
+                        log: () => {},
+                    },
+                } as never;
+
+                await updateVersionJson(filePath, context);
+                const updatedFile = await readFile(filePath, 'utf8');
+
+                assert.strictEqual(updatedFile, '{ "version": "1.2.3-beta.4" }');
+            });
+
         });
         describe('same version', function () {
             it('should skip when version is already up to date', async function () {
@@ -191,6 +214,22 @@ describe('Utils', function () {
                 assert.strictEqual(updatedFile, mockFile);
                 assert.ok(matched);
             });
+        });
+
+        it('should throw an error if the version could not be replaced', async function () {
+            const mockFile = '{}';
+            await writeFile(filePath, mockFile, 'utf8');
+
+            const context = {
+                nextRelease: {
+                    version: '1.2.3',
+                },
+                logger: {
+                    log: () => {},
+                },
+            } as never;
+
+            await assert.rejects(updateVersionJson(filePath, context), /Failed to replace version in/);
         });
     });
 });

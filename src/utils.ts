@@ -58,6 +58,7 @@ export async function parseConfig (config: PluginConfig): Promise<NormalizedPlug
         },
         publish: {
             binFolder: getTemporaryBinFolder(),
+            canary: false,
             pkgJsonPath: pkgJsonPath,
             publishArgs
         }
@@ -88,17 +89,21 @@ export async function updateVersionJson (file: string, context: VerifyReleaseCon
     }
 
     context.logger.log(`Updating version in ${file}`);
+    const nextVersion = context.nextRelease.version;
     const content = await readFile(file, 'utf8');
-    const json = JSON.parse(content);
-    if (json.version === context.nextRelease.version) {
+    const oldJson = JSON.parse(content);
+    if (oldJson.version === nextVersion) {
         context.logger.log(`Skipped, ${file} is already up to date`);
         return;
     }
 
-    const versionRegex = /("version"\s*:\s*")(\d+\.\d+\.\d+)(")/;
-    const nextVersion = context.nextRelease.version;
+    const versionRegex = /^([\s\S]*"version"\s*:\s*")([^"]+)("[\s\S]*$)/;
 
     const updatedContent = content.replace(versionRegex, `$1${nextVersion}$3`);
+    const newJson = JSON.parse(updatedContent);
+    if (newJson.version !== nextVersion) {
+        throw new Error(`Failed to replace version in ${file}`);
+    }
 
     await writeFile(file, updatedContent, 'utf8');
     context.logger.log(`Wrote new version to ${file}`);

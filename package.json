@@ -4,33 +4,34 @@
     "url": "https://github.com/sebbo2002/semantic-release-jsr/issues"
   },
   "dependencies": {
-    "jsr": "^0.12.2"
+    "jsr": "^0.13.1"
   },
   "description": "Small `semantic-release` plugin, which adjusts the version in the `jsr.json` file and executes `jsr publish` to publish the module on jsr.io as well.",
   "devDependencies": {
+    "@eslint/js": "^9.8.0",
     "@qiwi/semantic-release-gh-pages-plugin": "^5.2.12",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/exec": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
-    "@semantic-release/npm": "^12.0.0",
-    "@types/mocha": "^10.0.6",
-    "@types/node": "^20.12.7",
+    "@semantic-release/npm": "^12.0.1",
+    "@types/eslint__js": "^8.42.3",
+    "@types/mocha": "^10.0.7",
+    "@types/node": "^22.1.0",
     "@types/signale": "^1.4.7",
-    "@typescript-eslint/eslint-plugin": "^7.6.0",
-    "@typescript-eslint/parser": "^7.6.0",
-    "c8": "^9.1.0",
-    "eslint": "^8.57.0",
-    "eslint-plugin-jsonc": "^2.15.1",
+    "c8": "^10.1.2",
+    "eslint": "^9.8.0",
+    "eslint-plugin-jsonc": "^2.16.0",
     "esm": "^3.2.25",
     "license-checker": "^25.0.1",
-    "mocha": "^10.4.0",
+    "mocha": "^10.6.0",
     "mochawesome": "^7.1.3",
     "semantic-release-license": "^1.0.3",
     "source-map-support": "^0.5.21",
     "ts-node": "^10.9.2",
-    "tsup": "^8.0.2",
-    "typedoc": "^0.25.13",
-    "typescript": "^5.4.5"
+    "tsup": "^8.1.0",
+    "typedoc": "^0.26.3",
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^8.0.0-alpha.62"
   },
   "engines": {
     "node": ">=18.0.0"
@@ -56,7 +57,7 @@
     "build-all": "./.github/workflows/build.sh",
     "coverage": "c8 mocha",
     "license-check": "license-checker --production --summary",
-    "lint": "eslint . --ext .ts,.json",
+    "lint": "eslint .",
     "test": "mocha"
   },
   "type": "module",
