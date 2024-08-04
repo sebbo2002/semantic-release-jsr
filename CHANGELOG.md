@@ -1,3 +1,15 @@
+# [1.1.0](https://github.com/sebbo2002/semantic-release-jsr/compare/v1.0.1...v1.1.0) (2024-08-04)
+
+
+### Bug Fixes
+
+* make sure beta version values are also correctly parsed in `version` field ([4be02b6](https://github.com/sebbo2002/semantic-release-jsr/commit/4be02b6441f4eea198ae86cdd82174cc304de887)), closes [#13](https://github.com/sebbo2002/semantic-release-jsr/issues/13) [#13](https://github.com/sebbo2002/semantic-release-jsr/issues/13) [#15](https://github.com/sebbo2002/semantic-release-jsr/issues/15)
+
+
+### Features
+
+* Check if version was really changed in file ([59b7088](https://github.com/sebbo2002/semantic-release-jsr/commit/59b7088b5ad8120edf3679333661b9e490b6010b)), closes [#13](https://github.com/sebbo2002/semantic-release-jsr/issues/13)
+
 ## [1.0.1](https://github.com/sebbo2002/semantic-release-jsr/compare/v1.0.0...v1.0.1) (2024-07-16)
 
 
