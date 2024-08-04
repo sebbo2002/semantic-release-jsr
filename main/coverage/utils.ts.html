@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">81.06% </span>
+                <span class="strong">81.75% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>107/132</span>
+                <span class='fraction'>112/137</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">55.55% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>8/16</span>
+                <span class='fraction'>10/18</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">81.06% </span>
+                <span class="strong">81.75% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>107/132</span>
+                <span class='fraction'>112/137</span>
             </div>
         
             
@@ -195,7 +195,12 @@
 <a name='L130'></a><a href='#L130'>130</a>
 <a name='L131'></a><a href='#L131'>131</a>
 <a name='L132'></a><a href='#L132'>132</a>
-<a name='L133'></a><a href='#L133'>133</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L133'></a><a href='#L133'>133</a>
+<a name='L134'></a><a href='#L134'>134</a>
+<a name='L135'></a><a href='#L135'>135</a>
+<a name='L136'></a><a href='#L136'>136</a>
+<a name='L137'></a><a href='#L137'>137</a>
+<a name='L138'></a><a href='#L138'>138</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -264,6 +269,7 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -278,28 +284,32 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -374,7 +384,7 @@ export async function parseConfig (config: PluginConfig): Promise&lt;NormalizedP
 <span class="cstat-no" title="statement not covered" >        throw new Error('No name found in jsr.json or deno.json');</span>
 <span class="cstat-no" title="statement not covered" >    }</span>
 &nbsp;
-    const publishArgs = config.publishArgs<span class="branch-0 cbranch-no" title="branch not covered" >?.slice(0) </span>|| [];
+    const publishArgs = config.publishArgs<span class="branch-0 cbranch-no" title="branch not covered" >?.slice(</span>0) || [];
     if ((config.allowDirty === undefined<span class="branch-0 cbranch-no" title="branch not covered" > || config.allowDirty)</span> &amp;&amp; !publishArgs.includes('--allow-dirty')) {
         publishArgs.push('--allow-dirty');
     }
@@ -387,6 +397,7 @@ export async function parseConfig (config: PluginConfig): Promise&lt;NormalizedP
         },
         publish: {
             binFolder: getTemporaryBinFolder(),
+            canary: false,
             pkgJsonPath: pkgJsonPath,
             publishArgs
         }
@@ -417,23 +428,27 @@ export async function updateVersionJson (file: string, context: VerifyReleaseCon
 <span class="cstat-no" title="statement not covered" >    }</span>
 &nbsp;
     context.logger.log(`Updating version in ${file}`);
+    const nextVersion = context.nextRelease.version;
     const content = await readFile(file, 'utf8');
-    const json = JSON.parse(content);
-    if (json.version === context.nextRelease.version) {
+    const oldJson = JSON.parse(content);
+    if (oldJson.version === nextVersion) {
         context.logger.log(`Skipped, ${file} is already up to date`);
         return;
     }
 &nbsp;
-    const versionRegex = /("version"\s*:\s*")(\d+\.\d+\.\d+)(")/;
-    const nextVersion = context.nextRelease.version;
+    const versionRegex = /^([\s\S]*"version"\s*:\s*")([^"]+)("[\s\S]*$)/;
 &nbsp;
     const updatedContent = content.replace(versionRegex, `$1${nextVersion}$3`);
+    const newJson = JSON.parse(updatedContent);
+    if (newJson.version !== nextVersion) {
+        throw new Error(`Failed to replace version in ${file}`);
+    }
 &nbsp;
     await writeFile(file, updatedContent, 'utf8');
     context.logger.log(`Wrote new version to ${file}`);
 }
 &nbsp;
-export<span class="fstat-no" title="function not covered" > async function publish (config: NormalizedPluginConfig, context: VerifyConditionsContext): Promise&lt;void&gt; {</span>
+export <span class="fstat-no" title="function not covered" >async function publish (config: NormalizedPluginConfig, context: VerifyConditionsContext): Promise&lt;void&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    context.logger.log(`Run jsr publish in ${config.cwd} with ${JSON.stringify(config.publish)}`);</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >    const ms = Date.now();</span>
@@ -466,7 +481,7 @@ export function generatePublishResponse (config: NormalizedPluginConfig, context
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-07-16T17:58:38.970Z
+                at 2024-08-04T09:30:44.744Z
             </div>
         <script src="prettify.js"></script>
         <script>
