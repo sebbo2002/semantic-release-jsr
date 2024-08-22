@@ -1,16 +1,18 @@
 import {
-    NormalizedPluginConfig,
-    PluginConfig,
-    PublishResponse,
-    PublishResponseContext
+    type NormalizedPluginConfig,
+    type PluginConfig,
+    type PublishResponse,
+    type PublishResponseContext
 } from './types.ts';
 import { publish as jsrPublish } from 'jsr';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { existsSync, mkdtempSync } from 'node:fs';
 import { readFile, rm, writeFile } from 'node:fs/promises';
-import { VerifyReleaseContext, VerifyConditionsContext } from 'semantic-release';
-import {  } from 'fs';
+import {
+    type VerifyReleaseContext,
+    type VerifyConditionsContext
+} from 'semantic-release';
 
 export async function parseConfig (config: PluginConfig): Promise<NormalizedPluginConfig> {
     const cwd = config.cwd || process.cwd();
