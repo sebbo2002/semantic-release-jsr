@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">47.16% </span>
+                <span class="strong">41.07% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>25/53</span>
+                <span class='fraction'>23/56</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">16.66% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>1/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">47.16% </span>
+                <span class="strong">41.07% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>25/53</span>
+                <span class='fraction'>23/56</span>
             </div>
         
             
@@ -116,7 +116,10 @@
 <a name='L51'></a><a href='#L51'>51</a>
 <a name='L52'></a><a href='#L52'>52</a>
 <a name='L53'></a><a href='#L53'>53</a>
-<a name='L54'></a><a href='#L54'>54</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -133,6 +136,9 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -146,36 +152,39 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { PluginConfig, PublishResponse } from './types.ts';
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {
+    type PluginConfig,
+    type PublishResponse
+} from './types.ts';
 import {
-    FailContext,
-    PrepareContext,
-    PublishContext,
-    SuccessContext,
-    VerifyConditionsContext
+    type FailContext,
+    type PrepareContext,
+    type PublishContext,
+    type SuccessContext,
+    type VerifyConditionsContext
 } from 'semantic-release';
 import {
     generatePublishResponse,
@@ -185,7 +194,7 @@ import {
     updateVersionJson
 } from './utils.ts';
 &nbsp;
-export <span class="fstat-no" title="function not covered" >async function verifyConditions(pluginConfig: PluginConfig, context: VerifyConditionsContext): Promise&lt;void&gt; {</span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >export async function verifyConditions(pluginConfig: PluginConfig, context: VerifyConditionsContext): Promise&lt;void&gt; {</span></span>
 <span class="cstat-no" title="statement not covered" >    const config = await parseConfig(pluginConfig);</span>
 <span class="cstat-no" title="statement not covered" >    await publishUtil({</span>
 <span class="cstat-no" title="statement not covered" >        ...config,</span>
@@ -199,7 +208,7 @@ export <span class="fstat-no" title="function not covered" >async function verif
 <span class="cstat-no" title="statement not covered" >    }, context);</span>
 <span class="cstat-no" title="statement not covered" >}</span>
 &nbsp;
-export <span class="fstat-no" title="function not covered" >async function prepare(pluginConfig: PluginConfig, context: PrepareContext): Promise&lt;void&gt; {</span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >export async function prepare(pluginConfig: PluginConfig, context: PrepareContext): Promise&lt;void&gt; {</span></span>
 <span class="cstat-no" title="statement not covered" >    const config = await parseConfig(pluginConfig);</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >    for (const file of config.prepare.versionJsonPaths) {</span>
@@ -207,18 +216,18 @@ export <span class="fstat-no" title="function not covered" >async function prepa
 <span class="cstat-no" title="statement not covered" >    }</span>
 <span class="cstat-no" title="statement not covered" >}</span>
 &nbsp;
-export <span class="fstat-no" title="function not covered" >async function publish(pluginConfig: PluginConfig, context: PublishContext): Promise&lt;boolean | PublishResponse&gt; {</span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >export async function publish(pluginConfig: PluginConfig, context: PublishContext): Promise&lt;boolean | PublishResponse&gt; {</span></span>
 <span class="cstat-no" title="statement not covered" >    const config = await parseConfig(pluginConfig);</span>
 <span class="cstat-no" title="statement not covered" >    await publishUtil(config, context);</span>
 <span class="cstat-no" title="statement not covered" >    return generatePublishResponse(config, context);</span>
 <span class="cstat-no" title="statement not covered" >}</span>
 &nbsp;
-export <span class="fstat-no" title="function not covered" >async function success (pluginConfig: PluginConfig, context: SuccessContext) {</span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >export async function success (pluginConfig: PluginConfig, context: SuccessContext) {</span></span>
 <span class="cstat-no" title="statement not covered" >    context.logger.log('Removing temporary folder');</span>
 <span class="cstat-no" title="statement not covered" >    await removeTemporaryBinFolder();</span>
 <span class="cstat-no" title="statement not covered" >}</span>
 &nbsp;
-export <span class="fstat-no" title="function not covered" >async function fail (pluginConfig: PluginConfig, context: FailContext) {</span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >export async function fail (pluginConfig: PluginConfig, context: FailContext) {</span></span>
 <span class="cstat-no" title="statement not covered" >    context.logger.log('Removing temporary folder');</span>
 <span class="cstat-no" title="statement not covered" >    await removeTemporaryBinFolder();</span>
 <span class="cstat-no" title="statement not covered" >}</span>
@@ -229,7 +238,7 @@ export <span class="fstat-no" title="function not covered" >async function fail 
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-08-04T09:30:44.744Z
+                at 2024-08-26T18:47:22.869Z
             </div>
         <script src="prettify.js"></script>
         <script>
