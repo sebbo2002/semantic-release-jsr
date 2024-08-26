@@ -7,10 +7,10 @@ export {
 } from './command.ts';
 
 export {
-    NormalizedPluginConfig,
-    PluginConfig,
-    PublishResponse,
-    PublishResponseContext
+    type NormalizedPluginConfig,
+    type PluginConfig,
+    type PublishResponse,
+    type PublishResponseContext
 } from './types.ts';
 
 export {
