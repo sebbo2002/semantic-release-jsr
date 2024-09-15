@@ -1,17 +1,17 @@
-import {
-    type NormalizedPluginConfig,
-    type PluginConfig,
-    type PublishResponse,
-    type PublishResponseContext
+import type {
+    NormalizedPluginConfig,
+    PluginConfig,
+    PublishResponse,
+    PublishResponseContext
 } from './types.ts';
 import { publish as jsrPublish } from 'jsr';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { existsSync, mkdtempSync } from 'node:fs';
 import { readFile, rm, writeFile } from 'node:fs/promises';
-import {
-    type VerifyReleaseContext,
-    type VerifyConditionsContext
+import type {
+    VerifyReleaseContext,
+    VerifyConditionsContext
 } from 'semantic-release';
 
 export async function parseConfig (config: PluginConfig): Promise<NormalizedPluginConfig> {

@@ -1,5 +1,5 @@
-import { type PublishOptions } from 'jsr';
-import { type NextRelease } from 'semantic-release';
+import type { PublishOptions } from 'jsr';
+import type { NextRelease } from 'semantic-release';
 
 export interface PluginConfig {
     /**
