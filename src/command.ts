@@ -1,13 +1,13 @@
-import {
-    type PluginConfig,
-    type PublishResponse
+import type {
+    PluginConfig,
+    PublishResponse
 } from './types.ts';
-import {
-    type FailContext,
-    type PrepareContext,
-    type PublishContext,
-    type SuccessContext,
-    type VerifyConditionsContext
+import type {
+    FailContext,
+    PrepareContext,
+    PublishContext,
+    SuccessContext,
+    VerifyConditionsContext
 } from 'semantic-release';
 import {
     generatePublishResponse,
