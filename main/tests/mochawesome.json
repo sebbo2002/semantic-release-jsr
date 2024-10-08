@@ -5,9 +5,9 @@
     "passes": 8,
     "pending": 0,
     "failures": 0,
-    "start": "2024-08-26T18:47:21.134Z",
-    "end": "2024-08-26T18:47:21.154Z",
-    "duration": 20,
+    "start": "2024-10-08T04:35:08.054Z",
+    "end": "2024-10-08T04:35:08.073Z",
+    "duration": 19,
     "testsRegistered": 8,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "94f596bd-0c6e-4a00-be01-87b107676031",
+      "uuid": "aa676b7b-ed7e-4d3e-9344-ddec20778e37",
       "title": "",
       "fullFile": "/home/runner/work/semantic-release-jsr/semantic-release-jsr/test/lib/utils.ts",
       "file": "/test/lib/utils.ts",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "2d658e6a-c720-410d-bca1-24fe70afdfb4",
+          "uuid": "88f4fb89-5702-4418-9b5a-45ee0779ad9c",
           "title": "Utils",
           "fullFile": "/home/runner/work/semantic-release-jsr/semantic-release-jsr/test/lib/utils.ts",
           "file": "/test/lib/utils.ts",
@@ -36,7 +36,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "d7e4b910-7c26-4649-833d-fdde3968216e",
+              "uuid": "3aee2dc2-bdb1-4a15-9950-5ec3e4550297",
               "title": "generatePublishResponse()",
               "fullFile": "/home/runner/work/semantic-release-jsr/semantic-release-jsr/test/lib/utils.ts",
               "file": "/test/lib/utils.ts",
@@ -56,8 +56,8 @@
                   "context": null,
                   "code": "const config={cwd:process.cwd(),name:\"@sebbo2002/ical-generator\",prepare:{versionJsonPaths:[]},publish:{binFolder:\"\",canary:false,pkgJsonPath:\"\",publishArgs:[]}};const context={nextRelease:{version:\"1.2.3\",gitTag:\"v1.2.3\",name:\"v1.2.3\",type:\"patch\",channel:\"\",gitHead:\"\",notes:\"# [1.2.3](\\u2026)\"}};const response=generatePublishResponse(config,context);assert.deepStrictEqual(response,{name:\"JSR.io\",url:\"https://jsr.io/@sebbo2002/ical-generator@1.2.3\"})",
                   "err": {},
-                  "uuid": "3846d8c8-bc4a-46a0-a379-ccefb71ebe74",
-                  "parentUUID": "d7e4b910-7c26-4649-833d-fdde3968216e",
+                  "uuid": "f507052c-a242-4f20-8def-051745f880e3",
+                  "parentUUID": "3aee2dc2-bdb1-4a15-9950-5ec3e4550297",
                   "isHook": false,
                   "skipped": false
                 },
@@ -74,16 +74,16 @@
                   "context": null,
                   "code": "const config={cwd:process.cwd(),name:\"@sebbo2002/ical-generator\",prepare:{versionJsonPaths:[]},publish:{binFolder:\"\",canary:false,pkgJsonPath:\"\",publishArgs:[]}};const context={};const response=generatePublishResponse(config,context);assert.deepStrictEqual(response,{name:\"JSR.io\",url:\"https://jsr.io/@sebbo2002/ical-generator/versions\"})",
                   "err": {},
-                  "uuid": "92aa5a27-20e1-4d22-915f-5ac0493f83a0",
-                  "parentUUID": "d7e4b910-7c26-4649-833d-fdde3968216e",
+                  "uuid": "5fb6fe99-82f2-4d7e-8a7f-a1999f3a5fa2",
+                  "parentUUID": "3aee2dc2-bdb1-4a15-9950-5ec3e4550297",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "3846d8c8-bc4a-46a0-a379-ccefb71ebe74",
-                "92aa5a27-20e1-4d22-915f-5ac0493f83a0"
+                "f507052c-a242-4f20-8def-051745f880e3",
+                "5fb6fe99-82f2-4d7e-8a7f-a1999f3a5fa2"
               ],
               "failures": [],
               "pending": [],
@@ -94,7 +94,7 @@
               "_timeout": 2000
             },
             {
-              "uuid": "c9446684-115e-40ed-97d1-adab2e5d69bf",
+              "uuid": "859e86a1-e468-4e21-a458-ab5a6457c1b2",
               "title": "updateVersionJson()",
               "fullFile": "/home/runner/work/semantic-release-jsr/semantic-release-jsr/test/lib/utils.ts",
               "file": "/test/lib/utils.ts",
@@ -103,7 +103,7 @@
                   "title": "\"before each\" hook in \"updateVersionJson()\"",
                   "fullTitle": "Utils updateVersionJson() \"before each\" hook in \"updateVersionJson()\"",
                   "timedOut": false,
-                  "duration": 1,
+                  "duration": 0,
                   "state": null,
                   "speed": null,
                   "pass": false,
@@ -112,8 +112,8 @@
                   "context": null,
                   "code": "tmpDir=await mkdtemp(join(tmpdir(),\"semantic-release-jsr-\"));filePath=join(tmpDir,\"package.json\")",
                   "err": {},
-                  "uuid": "b1e72f5b-fe99-4b2a-8971-97fa6fde7570",
-                  "parentUUID": "c9446684-115e-40ed-97d1-adab2e5d69bf",
+                  "uuid": "3be820b0-c2a2-4ce5-b848-453f329651b1",
+                  "parentUUID": "859e86a1-e468-4e21-a458-ab5a6457c1b2",
                   "isHook": true,
                   "skipped": false
                 }
@@ -132,8 +132,8 @@
                   "context": null,
                   "code": "await rm(tmpDir,{recursive:true,force:true})",
                   "err": {},
-                  "uuid": "f1004fdf-cb24-468c-ac8c-bdacc6f96d0d",
-                  "parentUUID": "c9446684-115e-40ed-97d1-adab2e5d69bf",
+                  "uuid": "245f9b06-6c71-4454-9f8f-8f46c65c0511",
+                  "parentUUID": "859e86a1-e468-4e21-a458-ab5a6457c1b2",
                   "isHook": true,
                   "skipped": false
                 }
@@ -152,15 +152,15 @@
                   "context": null,
                   "code": "const mockFile=\"{}\";await writeFile(filePath,mockFile,\"utf8\");const context={nextRelease:{version:\"1.2.3\"},logger:{log:__name(()=>{},\"log\")}};await assert.rejects(updateVersionJson(filePath,context),/Failed to replace version in/)",
                   "err": {},
-                  "uuid": "273467e8-b2fb-4f4b-a8f4-801c2725916c",
-                  "parentUUID": "c9446684-115e-40ed-97d1-adab2e5d69bf",
+                  "uuid": "431e0aef-9d08-404f-a0ea-a9218ba360d5",
+                  "parentUUID": "859e86a1-e468-4e21-a458-ab5a6457c1b2",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [
                 {
-                  "uuid": "87093bd6-0fe4-4c7d-b02b-8e53307ab09d",
+                  "uuid": "fa729896-08ff-40d0-9f2f-935cee1ca7f2",
                   "title": "different version",
                   "fullFile": "/home/runner/work/semantic-release-jsr/semantic-release-jsr/test/lib/utils.ts",
                   "file": "/test/lib/utils.ts",
@@ -180,8 +180,8 @@
                       "context": null,
                       "code": "const mockFile='{ \"version\": \"1.2.3\" }';await writeFile(filePath,mockFile,\"utf8\");const context={nextRelease:{version:\"1.2.4\"},logger:{log:__name(()=>{},\"log\")}};await updateVersionJson(filePath,context);const updatedFile=await readFile(filePath,\"utf8\");assert.strictEqual(updatedFile,'{ \"version\": \"1.2.4\" }')",
                       "err": {},
-                      "uuid": "de282003-b652-4553-bf89-bbe3faf2abc9",
-                      "parentUUID": "87093bd6-0fe4-4c7d-b02b-8e53307ab09d",
+                      "uuid": "4d546532-cc56-404e-ae1e-0d46391f14a0",
+                      "parentUUID": "fa729896-08ff-40d0-9f2f-935cee1ca7f2",
                       "isHook": false,
                       "skipped": false
                     },
@@ -198,8 +198,8 @@
                       "context": null,
                       "code": "const mockFile='{\"version\":\"1.2.3\"}';await writeFile(filePath,mockFile,\"utf8\");const context={nextRelease:{version:\"1.2.4\"},logger:{log:__name(()=>{},\"log\")}};await updateVersionJson(filePath,context);const updatedFile=await readFile(filePath,\"utf8\");assert.strictEqual(updatedFile,'{\"version\":\"1.2.4\"}')",
                       "err": {},
-                      "uuid": "fe772df4-5f0f-4b40-b7db-223449b3456f",
-                      "parentUUID": "87093bd6-0fe4-4c7d-b02b-8e53307ab09d",
+                      "uuid": "0dd454a8-9ce3-4879-8569-12b5f02dbbcf",
+                      "parentUUID": "fa729896-08ff-40d0-9f2f-935cee1ca7f2",
                       "isHook": false,
                       "skipped": false
                     },
@@ -216,8 +216,8 @@
                       "context": null,
                       "code": "const mockFile='{\"version\"   :\"1.2.3\"   }';await writeFile(filePath,mockFile,\"utf8\");const context={nextRelease:{version:\"1.2.4\"},logger:{log:__name(()=>{},\"log\")}};await updateVersionJson(filePath,context);const updatedFile=await readFile(filePath,\"utf8\");assert.strictEqual(updatedFile,'{\"version\"   :\"1.2.4\"   }')",
                       "err": {},
-                      "uuid": "4b712b78-2d8e-4c89-aae9-aaed28fc9a86",
-                      "parentUUID": "87093bd6-0fe4-4c7d-b02b-8e53307ab09d",
+                      "uuid": "523b12b3-bee6-498b-847f-7eaa4722a412",
+                      "parentUUID": "fa729896-08ff-40d0-9f2f-935cee1ca7f2",
                       "isHook": false,
                       "skipped": false
                     },
@@ -234,18 +234,18 @@
                       "context": null,
                       "code": "const mockFile='{ \"version\": \"1.2.3-beta.3\" }';await writeFile(filePath,mockFile,\"utf8\");const context={nextRelease:{version:\"1.2.3-beta.4\"},logger:{log:__name(()=>{},\"log\")}};await updateVersionJson(filePath,context);const updatedFile=await readFile(filePath,\"utf8\");assert.strictEqual(updatedFile,'{ \"version\": \"1.2.3-beta.4\" }')",
                       "err": {},
-                      "uuid": "b1bff4a0-2b99-495c-997f-65b613d31891",
-                      "parentUUID": "87093bd6-0fe4-4c7d-b02b-8e53307ab09d",
+                      "uuid": "9c42b8a8-29da-45b8-87a5-94014c02ed39",
+                      "parentUUID": "fa729896-08ff-40d0-9f2f-935cee1ca7f2",
                       "isHook": false,
                       "skipped": false
                     }
                   ],
                   "suites": [],
                   "passes": [
-                    "de282003-b652-4553-bf89-bbe3faf2abc9",
-                    "fe772df4-5f0f-4b40-b7db-223449b3456f",
-                    "4b712b78-2d8e-4c89-aae9-aaed28fc9a86",
-                    "b1bff4a0-2b99-495c-997f-65b613d31891"
+                    "4d546532-cc56-404e-ae1e-0d46391f14a0",
+                    "0dd454a8-9ce3-4879-8569-12b5f02dbbcf",
+                    "523b12b3-bee6-498b-847f-7eaa4722a412",
+                    "9c42b8a8-29da-45b8-87a5-94014c02ed39"
                   ],
                   "failures": [],
                   "pending": [],
@@ -256,7 +256,7 @@
                   "_timeout": 2000
                 },
                 {
-                  "uuid": "0c4e26a0-59b8-4588-9006-454c3bf33971",
+                  "uuid": "a42bcf5c-e67c-44fc-87db-6c9ee8a8b7c9",
                   "title": "same version",
                   "fullFile": "/home/runner/work/semantic-release-jsr/semantic-release-jsr/test/lib/utils.ts",
                   "file": "/test/lib/utils.ts",
@@ -267,7 +267,7 @@
                       "title": "should skip when version is already up to date",
                       "fullTitle": "Utils updateVersionJson() same version should skip when version is already up to date",
                       "timedOut": false,
-                      "duration": 0,
+                      "duration": 1,
                       "state": "passed",
                       "speed": "fast",
                       "pass": true,
@@ -276,27 +276,27 @@
                       "context": null,
                       "code": "const mockFile='{ \"version\": \"1.2.3\" }';await writeFile(filePath,mockFile,\"utf8\");let matched=false;const context={nextRelease:{version:\"1.2.3\"},logger:{log:__name(msg=>{if(typeof msg===\"string\"){const match=msg.match(/Skipped, (.+) is already up to date/);if(match){assert.strictEqual(match[1],filePath);matched=true}}},\"log\")}};await updateVersionJson(filePath,context);const updatedFile=await readFile(filePath,\"utf8\");assert.strictEqual(updatedFile,mockFile);assert.ok(matched)",
                       "err": {},
-                      "uuid": "d9d34ab9-37d1-47ce-a13c-9e76554dfe9b",
-                      "parentUUID": "0c4e26a0-59b8-4588-9006-454c3bf33971",
+                      "uuid": "767b82c9-3542-4bfa-99d7-331448b9cdcf",
+                      "parentUUID": "a42bcf5c-e67c-44fc-87db-6c9ee8a8b7c9",
                       "isHook": false,
                       "skipped": false
                     }
                   ],
                   "suites": [],
                   "passes": [
-                    "d9d34ab9-37d1-47ce-a13c-9e76554dfe9b"
+                    "767b82c9-3542-4bfa-99d7-331448b9cdcf"
                   ],
                   "failures": [],
                   "pending": [],
                   "skipped": [],
-                  "duration": 0,
+                  "duration": 1,
                   "root": false,
                   "rootEmpty": false,
                   "_timeout": 2000
                 }
               ],
               "passes": [
-                "273467e8-b2fb-4f4b-a8f4-801c2725916c"
+                "431e0aef-9d08-404f-a0ea-a9218ba360d5"
               ],
               "failures": [],
               "pending": [],

@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="264" lines-covered="205" line-rate="0.7765000000000001" branches-valid="20" branches-covered="12" branch-rate="0.6" timestamp="1724698042864" complexity="0" version="0.1">
+<coverage lines-valid="264" lines-covered="205" line-rate="0.7765000000000001" branches-valid="20" branches-covered="12" branch-rate="0.6" timestamp="1728362109004" complexity="0" version="0.1">
   <sources>
     <source>/home/runner/work/semantic-release-jsr/semantic-release-jsr</source>
   </sources>
@@ -11,7 +11,7 @@
           <methods>
             <method name="__name" hits="5" signature="()V">
               <lines>
-                <line number="1" hits="5"/>
+                <line number="12" hits="5"/>
               </lines>
             </method>
             <method name="verifyConditions" hits="0" signature="()V">
@@ -41,7 +41,7 @@
             </method>
           </methods>
           <lines>
-            <line number="1" hits="5" branch="true" condition-coverage="100% (1/1)"/>
+            <line number="1" hits="1" branch="false"/>
             <line number="2" hits="1" branch="false"/>
             <line number="3" hits="1" branch="false"/>
             <line number="4" hits="1" branch="false"/>
@@ -52,7 +52,7 @@
             <line number="9" hits="1" branch="false"/>
             <line number="10" hits="1" branch="false"/>
             <line number="11" hits="1" branch="false"/>
-            <line number="12" hits="1" branch="false"/>
+            <line number="12" hits="5" branch="true" condition-coverage="100% (1/1)"/>
             <line number="13" hits="1" branch="false"/>
             <line number="14" hits="1" branch="false"/>
             <line number="15" hits="1" branch="false"/>
@@ -184,7 +184,7 @@
           <methods>
             <method name="__name" hits="6" signature="()V">
               <lines>
-                <line number="1" hits="6"/>
+                <line number="7" hits="6"/>
               </lines>
             </method>
             <method name="parseConfig" hits="1" signature="()V">
@@ -219,13 +219,13 @@
             </method>
           </methods>
           <lines>
-            <line number="1" hits="6" branch="true" condition-coverage="100% (1/1)"/>
+            <line number="1" hits="1" branch="false"/>
             <line number="2" hits="1" branch="false"/>
             <line number="3" hits="1" branch="false"/>
             <line number="4" hits="1" branch="false"/>
             <line number="5" hits="1" branch="false"/>
             <line number="6" hits="1" branch="false"/>
-            <line number="7" hits="1" branch="false"/>
+            <line number="7" hits="1" branch="true" condition-coverage="100% (1/1)"/>
             <line number="8" hits="1" branch="false"/>
             <line number="9" hits="1" branch="false"/>
             <line number="10" hits="1" branch="false"/>
