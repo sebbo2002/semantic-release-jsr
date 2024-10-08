@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/sebbo2002/semantic-release-jsr/compare/v2.0.0...v2.0.1) (2024-10-08)
+
+
+### Bug Fixes
+
+* Fix type imports to fix semantic-release import ([259433e](https://github.com/sebbo2002/semantic-release-jsr/commit/259433ece8ac403b5a15d4c98e8635b511cd0d40))
+
 # [2.0.0](https://github.com/sebbo2002/semantic-release-jsr/compare/v1.1.0...v2.0.0) (2024-08-26)
 
 
