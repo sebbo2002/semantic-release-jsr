@@ -1,3 +1,10 @@
+## [2.0.3](https://github.com/sebbo2002/semantic-release-jsr/compare/v2.0.2...v2.0.3) (2025-01-09)
+
+
+### Bug Fixes
+
+* **deps:** downgrade eslint to v9.13.0 to resolve typescript-eslint issue ([d4d3c58](https://github.com/sebbo2002/semantic-release-jsr/commit/d4d3c580323d3801f60e53dd61327758ff066418)), closes [#10353](https://github.com/sebbo2002/semantic-release-jsr/issues/10353) [typescript-eslint/typescript-eslint#10353](https://github.com/typescript-eslint/typescript-eslint/issues/10353)
+
 ## [2.0.2](https://github.com/sebbo2002/semantic-release-jsr/compare/v2.0.1...v2.0.2) (2024-11-15)
 
 ## [2.0.1](https://github.com/sebbo2002/semantic-release-jsr/compare/v2.0.0...v2.0.1) (2024-10-08)
