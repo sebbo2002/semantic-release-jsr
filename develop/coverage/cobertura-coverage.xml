@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="264" lines-covered="205" line-rate="0.7765000000000001" branches-valid="20" branches-covered="12" branch-rate="0.6" timestamp="1737470361326" complexity="0" version="0.1">
+<coverage lines-valid="264" lines-covered="205" line-rate="0.7765000000000001" branches-valid="20" branches-covered="12" branch-rate="0.6" timestamp="1738266449575" complexity="0" version="0.1">
   <sources>
     <source>/home/runner/work/semantic-release-jsr/semantic-release-jsr</source>
   </sources>
