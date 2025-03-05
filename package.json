@@ -4,7 +4,7 @@
     "url": "https://github.com/sebbo2002/semantic-release-jsr/issues"
   },
   "dependencies": {
-    "jsr": "^0.13.3"
+    "jsr": "^0.13.4"
   },
   "description": "Small `semantic-release` plugin, which adjusts the version in the `jsr.json` file and executes `jsr publish` to publish the module on jsr.io as well.",
   "devDependencies": {
