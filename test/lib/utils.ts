@@ -1,15 +1,18 @@
 'use strict';
 
 import * as assert from 'node:assert';
+import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+
 import {
     generatePublishResponse,
-    NormalizedPluginConfig, parseConfig,
-    PublishResponseContext, removeTemporaryBinFolder,
-    updateVersionJson
+    NormalizedPluginConfig,
+    parseConfig,
+    PublishResponseContext,
+    removeTemporaryBinFolder,
+    updateVersionJson,
 } from '../../src/index.ts';
-import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
-import { join } from 'node:path';
-import { tmpdir } from 'node:os';
 
 describe('Utils', function () {
     describe('parseConfig()', function () {
@@ -19,12 +22,17 @@ describe('Utils', function () {
             assert.ok(result.cwd);
             assert.strictEqual(result.name, '@sebbo2002/semantic-release-jsr');
             assert.deepStrictEqual(result.prepare, {
-                versionJsonPaths: [ result.cwd + '/package.json' ]
+                versionJsonPaths: [result.cwd + '/package.json'],
             });
 
             assert.ok(typeof result.publish, 'object');
-            assert.strictEqual(result.publish.pkgJsonPath, result.cwd + '/package.json');
-            assert.deepStrictEqual(result.publish.publishArgs, [ '--allow-dirty' ]);
+            assert.strictEqual(
+                result.publish.pkgJsonPath,
+                result.cwd + '/package.json',
+            );
+            assert.deepStrictEqual(result.publish.publishArgs, [
+                '--allow-dirty',
+            ]);
 
             await removeTemporaryBinFolder();
         });
@@ -35,31 +43,31 @@ describe('Utils', function () {
                 cwd: process.cwd(),
                 name: '@sebbo2002/ical-generator',
                 prepare: {
-                    versionJsonPaths: []
+                    versionJsonPaths: [],
                 },
                 publish: {
                     binFolder: '',
                     canary: false,
                     pkgJsonPath: '',
-                    publishArgs: []
-                }
+                    publishArgs: [],
+                },
             };
             const context: PublishResponseContext = {
                 nextRelease: {
-                    version: '1.2.3',
-                    gitTag: 'v1.2.3',
-                    name: 'v1.2.3',
-                    type: 'patch',
                     channel: '',
                     gitHead: '',
-                    notes: '# [1.2.3](…)'
-                }
+                    gitTag: 'v1.2.3',
+                    name: 'v1.2.3',
+                    notes: '# [1.2.3](…)',
+                    type: 'patch',
+                    version: '1.2.3',
+                },
             };
 
             const response = generatePublishResponse(config, context);
             assert.deepStrictEqual(response, {
                 name: 'JSR.io',
-                url: 'https://jsr.io/@sebbo2002/ical-generator@1.2.3'
+                url: 'https://jsr.io/@sebbo2002/ical-generator@1.2.3',
             });
         });
         it('should work without release', function () {
@@ -67,21 +75,21 @@ describe('Utils', function () {
                 cwd: process.cwd(),
                 name: '@sebbo2002/ical-generator',
                 prepare: {
-                    versionJsonPaths: []
+                    versionJsonPaths: [],
                 },
                 publish: {
                     binFolder: '',
                     canary: false,
                     pkgJsonPath: '',
-                    publishArgs: []
-                }
+                    publishArgs: [],
+                },
             };
             const context: PublishResponseContext = {};
 
             const response = generatePublishResponse(config, context);
             assert.deepStrictEqual(response, {
                 name: 'JSR.io',
-                url: 'https://jsr.io/@sebbo2002/ical-generator/versions'
+                url: 'https://jsr.io/@sebbo2002/ical-generator/versions',
             });
         });
     });
@@ -90,14 +98,12 @@ describe('Utils', function () {
         let filePath: string;
 
         beforeEach(async () => {
-            tmpDir = await mkdtemp(
-                join(tmpdir(), 'semantic-release-jsr-'),
-            );
+            tmpDir = await mkdtemp(join(tmpdir(), 'semantic-release-jsr-'));
             filePath = join(tmpDir, 'package.json');
         });
 
         afterEach(async () => {
-            await rm(tmpDir, { recursive: true, force: true });
+            await rm(tmpDir, { force: true, recursive: true });
         });
 
         describe('different version', function () {
@@ -107,11 +113,11 @@ describe('Utils', function () {
                 await writeFile(filePath, mockFile, 'utf8');
 
                 const context = {
-                    nextRelease: {
-                        version: '1.2.4',
-                    },
                     logger: {
                         log: () => {},
+                    },
+                    nextRelease: {
+                        version: '1.2.4',
                     },
                 } as never;
 
@@ -127,11 +133,11 @@ describe('Utils', function () {
                 await writeFile(filePath, mockFile, 'utf8');
 
                 const context = {
-                    nextRelease: {
-                        version: '1.2.4',
-                    },
                     logger: {
                         log: () => {},
+                    },
+                    nextRelease: {
+                        version: '1.2.4',
                     },
                 } as never;
 
@@ -147,11 +153,11 @@ describe('Utils', function () {
                 await writeFile(filePath, mockFile, 'utf8');
 
                 const context = {
-                    nextRelease: {
-                        version: '1.2.4',
-                    },
                     logger: {
                         log: () => {},
+                    },
+                    nextRelease: {
+                        version: '1.2.4',
                     },
                 } as never;
 
@@ -167,20 +173,22 @@ describe('Utils', function () {
                 await writeFile(filePath, mockFile, 'utf8');
 
                 const context = {
-                    nextRelease: {
-                        version: '1.2.3-beta.4',
-                    },
                     logger: {
                         log: () => {},
+                    },
+                    nextRelease: {
+                        version: '1.2.3-beta.4',
                     },
                 } as never;
 
                 await updateVersionJson(filePath, context);
                 const updatedFile = await readFile(filePath, 'utf8');
 
-                assert.strictEqual(updatedFile, '{ "version": "1.2.3-beta.4" }');
+                assert.strictEqual(
+                    updatedFile,
+                    '{ "version": "1.2.3-beta.4" }',
+                );
             });
-
         });
         describe('same version', function () {
             it('should skip when version is already up to date', async function () {
@@ -190,9 +198,6 @@ describe('Utils', function () {
 
                 let matched = false;
                 const context = {
-                    nextRelease: {
-                        version: '1.2.3',
-                    },
                     logger: {
                         log: (msg?: unknown) => {
                             if (typeof msg === 'string') {
@@ -205,6 +210,9 @@ describe('Utils', function () {
                                 }
                             }
                         },
+                    },
+                    nextRelease: {
+                        version: '1.2.3',
                     },
                 } as never;
 
@@ -221,15 +229,18 @@ describe('Utils', function () {
             await writeFile(filePath, mockFile, 'utf8');
 
             const context = {
-                nextRelease: {
-                    version: '1.2.3',
-                },
                 logger: {
                     log: () => {},
                 },
+                nextRelease: {
+                    version: '1.2.3',
+                },
             } as never;
 
-            await assert.rejects(updateVersionJson(filePath, context), /Failed to replace version in/);
+            await assert.rejects(
+                updateVersionJson(filePath, context),
+                /Failed to replace version in/,
+            );
         });
     });
 });
