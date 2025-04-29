@@ -8,7 +8,7 @@
     },
     "description": "Small `semantic-release` plugin, which adjusts the version in the `jsr.json` file and executes `jsr publish` to publish the module on jsr.io as well.",
     "devDependencies": {
-        "@eslint/js": "^9.23.0",
+        "@eslint/js": "^9.25.0",
         "@qiwi/semantic-release-gh-pages-plugin": "^5.4.3",
         "@semantic-release/changelog": "^6.0.3",
         "@semantic-release/exec": "^7.0.3",
