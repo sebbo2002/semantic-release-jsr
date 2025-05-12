@@ -1,3 +1,15 @@
+# [3.0.0](https://github.com/sebbo2002/semantic-release-jsr/compare/v2.0.5...v3.0.0) (2025-05-12)
+
+### chore
+
+- Drop node v18 support ([3e18405](https://github.com/sebbo2002/semantic-release-jsr/commit/3e18405ac1e1be738a414623f97169c802567f99))
+
+### BREAKING CHANGES
+
+- Drop node.js v18 Support
+
+This node.js version is no longer supported. For more information see https://nodejs.dev/en/about/releases/
+
 ## [2.0.5](https://github.com/sebbo2002/semantic-release-jsr/compare/v2.0.4...v2.0.5) (2025-03-16)
 
 ## [2.0.4](https://github.com/sebbo2002/semantic-release-jsr/compare/v2.0.3...v2.0.4) (2025-02-07)
