@@ -3,21 +3,21 @@ export {
     prepare,
     publish,
     success,
-    verifyConditions
+    verifyConditions,
 } from './command.ts';
 
 export {
     type NormalizedPluginConfig,
     type PluginConfig,
     type PublishResponse,
-    type PublishResponseContext
+    type PublishResponseContext,
 } from './types.ts';
 
 export {
     generatePublishResponse,
     getTemporaryBinFolder,
-    parseConfig,
     publish as jsrPublish,
+    parseConfig,
     removeTemporaryBinFolder,
-    updateVersionJson
+    updateVersionJson,
 } from './utils.ts';

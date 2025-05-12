@@ -1,23 +1,28 @@
 import type {
+    VerifyConditionsContext,
+    VerifyReleaseContext,
+} from 'semantic-release';
+
+import { publish as jsrPublish } from 'jsr';
+import { existsSync, mkdtempSync } from 'node:fs';
+import { readFile, rm, writeFile } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+
+import type {
     NormalizedPluginConfig,
     PluginConfig,
     PublishResponse,
-    PublishResponseContext
+    PublishResponseContext,
 } from './types.ts';
-import { publish as jsrPublish } from 'jsr';
-import { tmpdir } from 'node:os';
-import { join } from 'node:path';
-import { existsSync, mkdtempSync } from 'node:fs';
-import { readFile, rm, writeFile } from 'node:fs/promises';
-import type {
-    VerifyReleaseContext,
-    VerifyConditionsContext
-} from 'semantic-release';
 
-export async function parseConfig (config: PluginConfig): Promise<NormalizedPluginConfig> {
+export async function parseConfig(
+    config: PluginConfig,
+): Promise<NormalizedPluginConfig> {
     const cwd = config.cwd || process.cwd();
 
-    let pkgJsonPath: string | null = config.pkgJsonPath || join(cwd, 'package.json');
+    let pkgJsonPath: null | string =
+        config.pkgJsonPath || join(cwd, 'package.json');
     if (!config.pkgJsonPath && !existsSync(pkgJsonPath)) {
         pkgJsonPath = null;
     }
@@ -36,7 +41,7 @@ export async function parseConfig (config: PluginConfig): Promise<NormalizedPlug
         versionJsonPaths.push(pkgJsonPath);
     }
 
-    for(const path of versionJsonPaths) {
+    for (const path of versionJsonPaths) {
         const content = await readFile(path, 'utf8');
         const json = JSON.parse(content);
         if (!name && json.name) {
@@ -48,7 +53,10 @@ export async function parseConfig (config: PluginConfig): Promise<NormalizedPlug
     }
 
     const publishArgs = config.publishArgs?.slice(0) || [];
-    if ((config.allowDirty === undefined || config.allowDirty) && !publishArgs.includes('--allow-dirty')) {
+    if (
+        (config.allowDirty === undefined || config.allowDirty) &&
+        !publishArgs.includes('--allow-dirty')
+    ) {
         publishArgs.push('--allow-dirty');
     }
 
@@ -56,19 +64,34 @@ export async function parseConfig (config: PluginConfig): Promise<NormalizedPlug
         cwd,
         name,
         prepare: {
-            versionJsonPaths
+            versionJsonPaths,
         },
         publish: {
             binFolder: getTemporaryBinFolder(),
             canary: false,
             pkgJsonPath: pkgJsonPath,
-            publishArgs
-        }
+            publishArgs,
+        },
     };
 }
 
 let temporaryBinFolder: string | undefined;
-export function getTemporaryBinFolder (): string {
+export function generatePublishResponse(
+    config: NormalizedPluginConfig,
+    context: PublishResponseContext,
+): PublishResponse {
+    let url = `https://jsr.io/${config.name}/versions`;
+    if (context.nextRelease) {
+        url = `https://jsr.io/${config.name}@${context.nextRelease.version}`;
+    }
+
+    return {
+        name: 'JSR.io',
+        url,
+    };
+}
+
+export function getTemporaryBinFolder(): string {
     if (temporaryBinFolder) {
         return temporaryBinFolder;
     }
@@ -78,14 +101,38 @@ export function getTemporaryBinFolder (): string {
     return path;
 }
 
-export async function removeTemporaryBinFolder () {
+export async function publish(
+    config: NormalizedPluginConfig,
+    context: VerifyConditionsContext,
+): Promise<void> {
+    context.logger.log(
+        `Run jsr publish in ${config.cwd} with ${JSON.stringify(config.publish)}`,
+    );
+
+    const ms = Date.now();
+    try {
+        await jsrPublish(config.cwd, config.publish);
+        context.logger.log(
+            `jsr publish run successfully (took ${Date.now() - ms} ms)`,
+        );
+    } catch (error) {
+        context.logger.log(`jsr publish failed after ${Date.now() - ms} ms:`);
+        context.logger.error(error instanceof Error ? error.stack : error);
+        throw error;
+    }
+}
+
+export async function removeTemporaryBinFolder() {
     if (temporaryBinFolder) {
-        await rm(temporaryBinFolder, { recursive: true, force: true });
+        await rm(temporaryBinFolder, { force: true, recursive: true });
         temporaryBinFolder = undefined;
     }
 }
 
-export async function updateVersionJson (file: string, context: VerifyReleaseContext) {
+export async function updateVersionJson(
+    file: string,
+    context: VerifyReleaseContext,
+) {
     if (!context.nextRelease) {
         return;
     }
@@ -109,31 +156,4 @@ export async function updateVersionJson (file: string, context: VerifyReleaseCon
 
     await writeFile(file, updatedContent, 'utf8');
     context.logger.log(`Wrote new version to ${file}`);
-}
-
-export async function publish (config: NormalizedPluginConfig, context: VerifyConditionsContext): Promise<void> {
-    context.logger.log(`Run jsr publish in ${config.cwd} with ${JSON.stringify(config.publish)}`);
-
-    const ms = Date.now();
-    try {
-        await jsrPublish(config.cwd, config.publish);
-        context.logger.log(`jsr publish run successfully (took ${Date.now() - ms } ms)`);
-    }
-    catch (error) {
-        context.logger.log(`jsr publish failed after ${Date.now() - ms } ms:`);
-        context.logger.error(error instanceof Error ? error.stack : error);
-        throw error;
-    }
-}
-
-export function generatePublishResponse (config: NormalizedPluginConfig, context: PublishResponseContext): PublishResponse {
-    let url = `https://jsr.io/${config.name}/versions`;
-    if (context.nextRelease) {
-        url = `https://jsr.io/${config.name}@${context.nextRelease.version}`;
-    }
-
-    return {
-        name: 'JSR.io',
-        url
-    };
 }
