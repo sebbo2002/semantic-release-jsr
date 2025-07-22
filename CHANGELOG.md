@@ -1,3 +1,5 @@
+## [3.0.1](https://github.com/sebbo2002/semantic-release-jsr/compare/v3.0.0...v3.0.1) (2025-07-22)
+
 # [3.0.0](https://github.com/sebbo2002/semantic-release-jsr/compare/v2.0.5...v3.0.0) (2025-05-12)
 
 ### chore
