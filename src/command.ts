@@ -25,7 +25,7 @@ export async function prepare(
     pluginConfig: PluginConfig,
     context: PrepareContext,
 ): Promise<void> {
-    const config = await parseConfig(pluginConfig);
+    const config = await parseConfig(pluginConfig, context);
 
     for (const file of config.prepare.versionJsonPaths) {
         await updateVersionJson(file, context);
@@ -36,7 +36,7 @@ export async function publish(
     pluginConfig: PluginConfig,
     context: PublishContext,
 ): Promise<boolean | PublishResponse> {
-    const config = await parseConfig(pluginConfig);
+    const config = await parseConfig(pluginConfig, context);
     await publishUtil(config, context);
     return generatePublishResponse(config, context);
 }
@@ -53,7 +53,7 @@ export async function verifyConditions(
     pluginConfig: PluginConfig,
     context: VerifyConditionsContext,
 ): Promise<void> {
-    const config = await parseConfig(pluginConfig);
+    const config = await parseConfig(pluginConfig, context);
     await publishUtil(
         {
             ...config,
