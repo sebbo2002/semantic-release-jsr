@@ -1,3 +1,13 @@
+# [3.1.0](https://github.com/sebbo2002/semantic-release-jsr/compare/v3.0.1...v3.1.0) (2025-10-31)
+
+### Bug Fixes
+
+- Use cwd from context to support multi semantic release ([812e557](https://github.com/sebbo2002/semantic-release-jsr/commit/812e557db7f8745ef32afe9e9b876931f590663f)), closes [#85](https://github.com/sebbo2002/semantic-release-jsr/issues/85)
+
+### Features
+
+- Add additional info about dry run in verifyConditions step ([86558c1](https://github.com/sebbo2002/semantic-release-jsr/commit/86558c14395920f5631bc3154759dc47e3db4451))
+
 ## [3.0.1](https://github.com/sebbo2002/semantic-release-jsr/compare/v3.0.0...v3.0.1) (2025-07-22)
 
 # [3.0.0](https://github.com/sebbo2002/semantic-release-jsr/compare/v2.0.5...v3.0.0) (2025-05-12)
