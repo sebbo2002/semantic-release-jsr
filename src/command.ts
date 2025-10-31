@@ -54,6 +54,8 @@ export async function verifyConditions(
     context: VerifyConditionsContext,
 ): Promise<void> {
     const config = await parseConfig(pluginConfig, context);
+    context.logger.info('Run jsr publish --dry-run to verify configuration');
+
     await publishUtil(
         {
             ...config,
