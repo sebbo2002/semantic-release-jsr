@@ -1,4 +1,6 @@
 import type {
+    PrepareContext,
+    PublishContext,
     VerifyConditionsContext,
     VerifyReleaseContext,
 } from 'semantic-release';
@@ -18,8 +20,9 @@ import type {
 
 export async function parseConfig(
     config: PluginConfig,
+    context: PrepareContext | PublishContext | VerifyConditionsContext,
 ): Promise<NormalizedPluginConfig> {
-    const cwd = config.cwd || process.cwd();
+    const cwd = config.cwd || context.cwd || process.cwd();
 
     let pkgJsonPath: null | string =
         config.pkgJsonPath || join(cwd, 'package.json');
