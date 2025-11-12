@@ -24,7 +24,7 @@
         "esm": "^3.2.25",
         "husky": "^9.1.7",
         "license-checker": "^25.0.1",
-        "mocha": "^11.7.4",
+        "mocha": "^11.7.5",
         "mochawesome": "^7.1.4",
         "prettier": "^3.6.2",
         "semantic-release-license": "^1.0.3",
@@ -33,7 +33,7 @@
         "tsx": "^4.20.6",
         "typedoc": "^0.28.14",
         "typescript": "^5.9.3",
-        "typescript-eslint": "^8.46.2"
+        "typescript-eslint": "^8.46.4"
     },
     "engines": {
         "node": "20 || >=22.0.0"
