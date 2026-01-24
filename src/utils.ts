@@ -144,6 +144,12 @@ export async function updateVersionJson(
     const nextVersion = context.nextRelease.version;
     const content = await readFile(file, 'utf8');
     const oldJson = JSON.parse(content);
+
+    if (oldJson.version == null) {
+        context.logger.log(`Skipped, ${file} does not have a version key`);
+        return;
+    }
+
     if (oldJson.version === nextVersion) {
         context.logger.log(`Skipped, ${file} is already up to date`);
         return;
