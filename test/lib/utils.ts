@@ -224,8 +224,42 @@ describe('Utils', function () {
             });
         });
 
+        describe('missing version', function () {
+            it('should skip when version is missing', async function () {
+                const mockFile = '{}';
+
+                await writeFile(filePath, mockFile, 'utf8');
+
+                let matched = false;
+                const context = {
+                    logger: {
+                        log: (msg?: unknown) => {
+                            if (typeof msg === 'string') {
+                                const match = msg.match(
+                                    /Skipped, (.+) does not have a version key/,
+                                );
+                                if (match) {
+                                    assert.strictEqual(match[1], filePath);
+                                    matched = true;
+                                }
+                            }
+                        },
+                    },
+                    nextRelease: {
+                        version: '1.2.3',
+                    },
+                } as never;
+
+                await updateVersionJson(filePath, context);
+                const updatedFile = await readFile(filePath, 'utf8');
+
+                assert.strictEqual(updatedFile, mockFile);
+                assert.ok(matched);
+            });
+        });
+
         it('should throw an error if the version could not be replaced', async function () {
-            const mockFile = '{}';
+            const mockFile = '{ "version": {} }';
             await writeFile(filePath, mockFile, 'utf8');
 
             const context = {
