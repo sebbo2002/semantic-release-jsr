@@ -20,9 +20,9 @@ import type {
 
 export async function parseConfig(
     config: PluginConfig,
-    context: PrepareContext | PublishContext | VerifyConditionsContext,
+    context?: PrepareContext | PublishContext | VerifyConditionsContext,
 ): Promise<NormalizedPluginConfig> {
-    const cwd = config.cwd || context.cwd || process.cwd();
+    const cwd = config.cwd || context?.cwd || process.cwd();
 
     let pkgJsonPath: null | string =
         config.pkgJsonPath || join(cwd, 'package.json');
