@@ -7,9 +7,9 @@ import { join } from 'node:path';
 
 import {
     generatePublishResponse,
-    NormalizedPluginConfig,
+    type NormalizedPluginConfig,
     parseConfig,
-    PublishResponseContext,
+    type PublishResponseContext,
     removeTemporaryBinFolder,
     updateVersionJson,
 } from '../../src/index.ts';
@@ -224,7 +224,7 @@ describe('Utils', function () {
             });
         });
 
-        it('should throw an error if the version could not be replaced', async function () {
+        it('should throw a SemanticReleaseError if the version could not be replaced', async function () {
             const mockFile = '{}';
             await writeFile(filePath, mockFile, 'utf8');
 
@@ -239,7 +239,14 @@ describe('Utils', function () {
 
             await assert.rejects(
                 updateVersionJson(filePath, context),
-                /Failed to replace version in/,
+                (err: Error) => {
+                    assert.strictEqual(err.name, 'SemanticReleaseError');
+                    assert.strictEqual(
+                        err.message,
+                        `Failed to replace version in ${filePath}`,
+                    );
+                    return true;
+                },
             );
         });
     });

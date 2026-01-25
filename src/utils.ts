@@ -17,6 +17,7 @@ import type {
     PublishResponse,
     PublishResponseContext,
 } from './types.ts';
+import SemanticReleaseError from '@semantic-release/error';
 
 export async function parseConfig(
     config: PluginConfig,
@@ -52,7 +53,9 @@ export async function parseConfig(
         }
     }
     if (!name) {
-        throw new Error('No name found in jsr.json or deno.json');
+        throw new SemanticReleaseError(
+            'No name found in jsr.json or deno.json',
+        );
     }
 
     const publishArgs = config.publishArgs?.slice(0) || [];
@@ -154,7 +157,7 @@ export async function updateVersionJson(
     const updatedContent = content.replace(versionRegex, `$1${nextVersion}$3`);
     const newJson = JSON.parse(updatedContent);
     if (newJson.version !== nextVersion) {
-        throw new Error(`Failed to replace version in ${file}`);
+        throw new SemanticReleaseError(`Failed to replace version in ${file}`);
     }
 
     await writeFile(file, updatedContent, 'utf8');
