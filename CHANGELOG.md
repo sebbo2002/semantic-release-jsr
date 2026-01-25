@@ -1,3 +1,9 @@
+## [3.1.1](https://github.com/sebbo2002/semantic-release-jsr/compare/v3.1.0...v3.1.1) (2026-01-25)
+
+### Bug Fixes
+
+- **parseConfig:** :rotating_light: make parameter `context` optional ([1876f26](https://github.com/sebbo2002/semantic-release-jsr/commit/1876f2628f8996e6425cb8b9cf7d43b780138c84))
+
 # [3.1.0](https://github.com/sebbo2002/semantic-release-jsr/compare/v3.0.1...v3.1.0) (2025-10-31)
 
 ### Bug Fixes
