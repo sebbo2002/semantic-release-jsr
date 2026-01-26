@@ -5,6 +5,7 @@ import type {
     VerifyReleaseContext,
 } from 'semantic-release';
 
+import SemanticReleaseError from '@semantic-release/error';
 import { publish as jsrPublish } from 'jsr';
 import { existsSync, mkdtempSync } from 'node:fs';
 import { readFile, rm, writeFile } from 'node:fs/promises';
@@ -52,7 +53,11 @@ export async function parseConfig(
         }
     }
     if (!name) {
-        throw new Error('No name found in jsr.json or deno.json');
+        throw new SemanticReleaseError(
+            'No name found in jsr.json or deno.json',
+            'ERR_NO_NAME',
+            'A package name is required to publish to JSR.io',
+        );
     }
 
     const publishArgs = config.publishArgs?.slice(0) || [];
@@ -154,7 +159,12 @@ export async function updateVersionJson(
     const updatedContent = content.replace(versionRegex, `$1${nextVersion}$3`);
     const newJson = JSON.parse(updatedContent);
     if (newJson.version !== nextVersion) {
-        throw new Error(`Failed to replace version in ${file}`);
+        throw new SemanticReleaseError(
+            `Failed to replace version in ${file}`,
+            'ERR_VERSION_REPLACE',
+            `The version in ${file} could not be updated to ${nextVersion}. Please check if the file ` +
+                `is valid JSON and contains a "version" field.`,
+        );
     }
 
     await writeFile(file, updatedContent, 'utf8');
