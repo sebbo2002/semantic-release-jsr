@@ -7,9 +7,9 @@ import { join } from 'node:path';
 
 import {
     generatePublishResponse,
-    NormalizedPluginConfig,
+    type NormalizedPluginConfig,
     parseConfig,
-    PublishResponseContext,
+    type PublishResponseContext,
     removeTemporaryBinFolder,
     updateVersionJson,
 } from '../../src/index.ts';
