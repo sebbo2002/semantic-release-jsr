@@ -1,3 +1,9 @@
+# [3.2.0](https://github.com/sebbo2002/semantic-release-jsr/compare/v3.1.1...v3.2.0) (2026-02-15)
+
+### Features
+
+- Use SemanticReleaseErrors instead of plain JS Errors ([02d05b5](https://github.com/sebbo2002/semantic-release-jsr/commit/02d05b599a6bc996c540081f78d34e6047445bd4)), closes [#9](https://github.com/sebbo2002/semantic-release-jsr/issues/9) [#116](https://github.com/sebbo2002/semantic-release-jsr/issues/116)
+
 ## [3.1.1](https://github.com/sebbo2002/semantic-release-jsr/compare/v3.1.0...v3.1.1) (2026-01-25)
 
 ### Bug Fixes
