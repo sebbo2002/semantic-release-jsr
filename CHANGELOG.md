@@ -1,3 +1,5 @@
+## [3.2.1](https://github.com/sebbo2002/semantic-release-jsr/compare/v3.2.0...v3.2.1) (2026-03-04)
+
 # [3.2.0](https://github.com/sebbo2002/semantic-release-jsr/compare/v3.1.1...v3.2.0) (2026-02-15)
 
 ### Features
