@@ -1,44 +1,43 @@
-# template
+# semantic-release-jsr
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE)
 
-Here would be a very short description of the project. So in this example it would be a short information that this is
-a template that I use to start new projects and services.
+Small `semantic-release` plugin, which adjusts the version in the `jsr.json` file and executes
+`jsr publish` to publish the module on jsr.io as well.
 
-## 🚨 Template Usage Checklist
+## 📦 Install
 
-- [ ] Update project name in `package.json`
-- [ ] Create `main` and `develop` branches
-- [ ] Set `develop` as default branch
-- [ ] Create Docker Repository
-    - [ ] Add Repository Description
-    - [ ] Add secret: `DOCKERHUB_TOKEN`
-- [ ] Create npm Repository with `npm publish --access public`
-    - [ ] Add secret: `NPM_TOKEN`
-- [ ] Go through repo settings
+```bash
+# Install via npm
+$ npm install -D @sebbo2002/semantic-release-jsr
+```
 
-## 📦 Installation
+## 🔧 Usage
 
-    git clone https://github.com/sebbo2002/template.git
-    cd ./template
+The plugin can be configured in the [**semantic-release** configuration file](https://github.com/semantic-release/semantic-release/blob/master/docs/usage/configuration.md#configuration):
 
-    npm install
+```json
+{
+    "plugins": [
+        "@semantic-release/commit-analyzer",
+        "@semantic-release/release-notes-generator",
+        "@sebbo2002/semantic-release-jsr"
+    ]
+}
+```
 
-## ⚡️ Quick Start
+Please do not forget to set the `id-token` permission in your GitHub action so that `jsr publish`
+can access the OIDC ID token for authentication. Optionally, some options can be passed to the
+plugin, which are documented [here](https://sebbo2002.github.io/semantic-release-jsr/develop/reference/interfaces/PluginConfig.html).
 
-This is where it would normally say how to use the project.
-This could be a code example for a library or instructions on how to use a CLI tool.
+## ⚙️ Steps
 
-## 📑 API-Reference
-
-Is there an API that needs to be documented? Then here would be a nice place for it. If there is external documentation,
-you can link it here ([example](https://github.com/sebbo2002/ical-generator/#-api-reference)).
-
-## 🙋 FAQ
-
-### What's `1` + `2`
-
-It's `3` 🎉
+| Step               | Description                                                                                  |
+| ------------------ | -------------------------------------------------------------------------------------------- |
+| `verifyConditions` | Runs `jsr publish --dry-run` to test your setup. Also downloads the deno binary if required. |
+| `prepare`          | Updates the `jsr.json` / `deno.json` files                                                   |
+| `publish`          | Run final `jsr publish` command                                                              |
+| `fail` / `success` | Remove the temporary folder                                                                  |
 
 ## 🙆🏼‍♂️ Copyright and license
 
