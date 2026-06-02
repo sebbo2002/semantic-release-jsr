@@ -1,3 +1,15 @@
+# [4.0.0](https://github.com/sebbo2002/semantic-release-jsr/compare/v3.2.1...v4.0.0) (2026-06-02)
+
+### Features
+
+- Drop support for node.js v20 and v23 ([d949a08](https://github.com/sebbo2002/semantic-release-jsr/commit/d949a088c82ede8768c62556cfc0da9ce2255b1b))
+
+### BREAKING CHANGES
+
+- Drop node.js v20 / v23 Support
+
+This node.js version is no longer supported. For more information see https://nodejs.dev/en/about/releases/
+
 ## [3.2.1](https://github.com/sebbo2002/semantic-release-jsr/compare/v3.2.0...v3.2.1) (2026-03-04)
 
 # [3.2.0](https://github.com/sebbo2002/semantic-release-jsr/compare/v3.1.1...v3.2.0) (2026-02-15)
