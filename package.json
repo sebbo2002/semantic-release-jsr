@@ -44,14 +44,14 @@
     },
     "exports": {
         "import": "./dist/index.mjs",
-        "require": "./dist/index.cjs"
+        "require": "./dist/plugin.cjs"
     },
     "files": [
         "/dist"
     ],
     "homepage": "https://github.com/sebbo2002/semantic-release-jsr#readme",
     "license": "MIT",
-    "main": "./dist/index.cjs",
+    "main": "./dist/plugin.cjs",
     "module": "./dist/index.mjs",
     "name": "@sebbo2002/semantic-release-jsr",
     "repository": {
