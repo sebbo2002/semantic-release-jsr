@@ -3,6 +3,7 @@ import { defineConfig } from 'tsdown';
 
 const pkg = JSON.parse(fs.readFileSync('./package.json', 'utf-8'));
 export default defineConfig({
+    copy: ['src/plugin.cjs'],
     dts: true,
     entry: ['src/index.ts'],
     external: [
