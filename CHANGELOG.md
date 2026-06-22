@@ -1,3 +1,9 @@
+## [4.0.1](https://github.com/sebbo2002/semantic-release-jsr/compare/v4.0.0...v4.0.1) (2026-06-22)
+
+### Bug Fixes
+
+- restore semantic-release plugin loading ([2e398bb](https://github.com/sebbo2002/semantic-release-jsr/commit/2e398bb87e5cef237814be841295f03d091e4a54))
+
 # [4.0.0](https://github.com/sebbo2002/semantic-release-jsr/compare/v3.2.1...v4.0.0) (2026-06-02)
 
 ### Features
