@@ -1,10 +1,13 @@
-export {
+import {
     fail,
     prepare,
     publish,
     success,
     verifyConditions,
 } from './command.ts';
+
+export { fail, prepare, publish, success, verifyConditions };
+export default { verifyConditions, prepare, publish, success, fail };
 
 export {
     type NormalizedPluginConfig,
