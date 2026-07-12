@@ -1,3 +1,9 @@
+## [4.0.2](https://github.com/sebbo2002/semantic-release-jsr/compare/v4.0.1...v4.0.2) (2026-07-12)
+
+### Bug Fixes
+
+- Add default export to fix EPLUGINSCONF ([2c924c0](https://github.com/sebbo2002/semantic-release-jsr/commit/2c924c09cdf37636336f403376dceaf3b8e93b35))
+
 ## [4.0.1](https://github.com/sebbo2002/semantic-release-jsr/compare/v4.0.0...v4.0.1) (2026-06-22)
 
 ### Bug Fixes
