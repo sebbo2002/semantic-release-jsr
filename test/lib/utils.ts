@@ -242,5 +242,297 @@ describe('Utils', function () {
                 /Failed to replace version in/,
             );
         });
+
+        describe('top-level version with other "version" keys', function () {
+            it('should update the top-level version if a nested version comes after it', async function () {
+                const mockFile = `{
+  "name": "test",
+  "version": "1.2.3",
+  "scripts": {
+    "version": "changeset version"
+  }
+}`;
+
+                await writeFile(filePath, mockFile, 'utf8');
+
+                const context = {
+                    logger: {
+                        log: () => {},
+                    },
+                    nextRelease: {
+                        version: '1.2.4',
+                    },
+                } as never;
+
+                await updateVersionJson(filePath, context);
+                const updatedFile = await readFile(filePath, 'utf8');
+
+                assert.strictEqual(
+                    updatedFile,
+                    `{
+  "name": "test",
+  "version": "1.2.4",
+  "scripts": {
+    "version": "changeset version"
+  }
+}`,
+                );
+            });
+
+            it('should update the top-level version if a nested version comes before it', async function () {
+                const mockFile = `{
+  "scripts": {
+    "version": "changeset version"
+  },
+  "version": "1.2.3"
+}`;
+
+                await writeFile(filePath, mockFile, 'utf8');
+
+                const context = {
+                    logger: {
+                        log: () => {},
+                    },
+                    nextRelease: {
+                        version: '1.2.4',
+                    },
+                } as never;
+
+                await updateVersionJson(filePath, context);
+                const updatedFile = await readFile(filePath, 'utf8');
+
+                assert.strictEqual(
+                    updatedFile,
+                    `{
+  "scripts": {
+    "version": "changeset version"
+  },
+  "version": "1.2.4"
+}`,
+                );
+            });
+
+            it('should only update the top-level version if multiple nested versions come after it', async function () {
+                const mockFile = `{
+  "exports": "./mod.ts",
+  "version": "1.2.3",
+  "devEngines": {
+    "runtime": {
+      "version": "deno"
+    }
+  },
+  "tasks": {
+    "version": "deno task v"
+  }
+}`;
+
+                await writeFile(filePath, mockFile, 'utf8');
+
+                const context = {
+                    logger: {
+                        log: () => {},
+                    },
+                    nextRelease: {
+                        version: '1.2.4',
+                    },
+                } as never;
+
+                await updateVersionJson(filePath, context);
+                const updatedFile = await readFile(filePath, 'utf8');
+
+                assert.strictEqual(
+                    updatedFile,
+                    `{
+  "exports": "./mod.ts",
+  "version": "1.2.4",
+  "devEngines": {
+    "runtime": {
+      "version": "deno"
+    }
+  },
+  "tasks": {
+    "version": "deno task v"
+  }
+}`,
+                );
+            });
+
+            it('should update the top-level version in a deno.json style file', async function () {
+                const mockFile = `{
+  "name": "@sebbo2002/test",
+  "version": "1.2.3",
+  "imports": {
+    "ver": "jsr:@x/version"
+  },
+  "tasks": {
+    "version": "echo"
+  }
+}`;
+
+                await writeFile(filePath, mockFile, 'utf8');
+
+                const context = {
+                    logger: {
+                        log: () => {},
+                    },
+                    nextRelease: {
+                        version: '1.2.4',
+                    },
+                } as never;
+
+                await updateVersionJson(filePath, context);
+                const updatedFile = await readFile(filePath, 'utf8');
+
+                assert.strictEqual(
+                    updatedFile,
+                    `{
+  "name": "@sebbo2002/test",
+  "version": "1.2.4",
+  "imports": {
+    "ver": "jsr:@x/version"
+  },
+  "tasks": {
+    "version": "echo"
+  }
+}`,
+                );
+            });
+
+            it('should update the top-level version if a value equals "version" before the key', async function () {
+                const mockFile = '{ "foo": "version", "version": "1.2.3" }';
+
+                await writeFile(filePath, mockFile, 'utf8');
+
+                const context = {
+                    logger: {
+                        log: () => {},
+                    },
+                    nextRelease: {
+                        version: '1.2.4',
+                    },
+                } as never;
+
+                await updateVersionJson(filePath, context);
+                const updatedFile = await readFile(filePath, 'utf8');
+
+                assert.strictEqual(
+                    updatedFile,
+                    '{ "foo": "version", "version": "1.2.4" }',
+                );
+            });
+
+            it('should update the top-level version if another value contains escaped quotes', async function () {
+                const mockFile =
+                    '{ "description": "the \\"version\\" field", "version": "1.2.3" }';
+
+                await writeFile(filePath, mockFile, 'utf8');
+
+                const context = {
+                    logger: {
+                        log: () => {},
+                    },
+                    nextRelease: {
+                        version: '1.2.4',
+                    },
+                } as never;
+
+                await updateVersionJson(filePath, context);
+                const updatedFile = await readFile(filePath, 'utf8');
+
+                assert.strictEqual(
+                    updatedFile,
+                    '{ "description": "the \\"version\\" field", "version": "1.2.4" }',
+                );
+            });
+
+            it('should reject if there is only a nested version and leave the file untouched', async function () {
+                const mockFile = `{
+  "scripts": {
+    "version": "x"
+  }
+}`;
+
+                await writeFile(filePath, mockFile, 'utf8');
+
+                const context = {
+                    logger: {
+                        log: () => {},
+                    },
+                    nextRelease: {
+                        version: '1.2.4',
+                    },
+                } as never;
+
+                await assert.rejects(
+                    updateVersionJson(filePath, context),
+                    /Failed to replace version in/,
+                );
+
+                const updatedFile = await readFile(filePath, 'utf8');
+                assert.strictEqual(updatedFile, mockFile);
+            });
+
+            it('should reject if the top-level version is not a string and leave the file untouched', async function () {
+                const mockFile = '{ "version": 123 }';
+
+                await writeFile(filePath, mockFile, 'utf8');
+
+                const context = {
+                    logger: {
+                        log: () => {},
+                    },
+                    nextRelease: {
+                        version: '1.2.4',
+                    },
+                } as never;
+
+                await assert.rejects(
+                    updateVersionJson(filePath, context),
+                    /Failed to replace version in/,
+                );
+
+                const updatedFile = await readFile(filePath, 'utf8');
+                assert.strictEqual(updatedFile, mockFile);
+            });
+
+            it('should preserve formatting of a realistic package.json', async function () {
+                const mockFile = `{
+  "name": "@sebbo2002/semantic-release-jsr",
+  "type": "module",
+  "version": "1.2.3",
+  "scripts": {
+    "test": "mocha",
+    "version": "npx changeset version"
+  }
+}`;
+
+                await writeFile(filePath, mockFile, 'utf8');
+
+                const context = {
+                    logger: {
+                        log: () => {},
+                    },
+                    nextRelease: {
+                        version: '1.2.4',
+                    },
+                } as never;
+
+                await updateVersionJson(filePath, context);
+                const updatedFile = await readFile(filePath, 'utf8');
+
+                assert.strictEqual(
+                    updatedFile,
+                    `{
+  "name": "@sebbo2002/semantic-release-jsr",
+  "type": "module",
+  "version": "1.2.4",
+  "scripts": {
+    "test": "mocha",
+    "version": "npx changeset version"
+  }
+}`,
+                );
+            });
+        });
     });
 });
