@@ -1,3 +1,9 @@
+## [4.0.3](https://github.com/sebbo2002/semantic-release-jsr/compare/v4.0.2...v4.0.3) (2026-11-18)
+
+### Bug Fixes
+
+- Only replace top-level "version" key when updating version files ([1c90a26](https://github.com/sebbo2002/semantic-release-jsr/commit/1c90a26cbb1ae91d3a97420f85e867579ea3a1d1)), closes [#207](https://github.com/sebbo2002/semantic-release-jsr/issues/207)
+
 ## [4.0.2](https://github.com/sebbo2002/semantic-release-jsr/compare/v4.0.1...v4.0.2) (2026-07-12)
 
 ### Bug Fixes
