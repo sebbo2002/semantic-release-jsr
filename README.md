@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE)
 
-Small `semantic-release` plugin, which adjusts the version in the `jsr.json` file (or 
+Small `semantic-release` plugin, which adjusts the version in the `jsr.json` file (or
 `deno.json`) and executes `jsr publish` to publish the module on jsr.io as well.
 
 ## 📦 Install

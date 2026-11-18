@@ -7,7 +7,7 @@ import {
 } from './command.ts';
 
 export { fail, prepare, publish, success, verifyConditions };
-export default { verifyConditions, prepare, publish, success, fail };
+export default { fail, prepare, publish, success, verifyConditions };
 
 export {
     type NormalizedPluginConfig,

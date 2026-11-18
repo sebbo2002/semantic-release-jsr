@@ -137,6 +137,89 @@ export async function removeTemporaryBinFolder() {
     }
 }
 
+export function replaceTopLevelVersion(
+    content: string,
+    nextVersion: string,
+): null | string {
+    let depth = 0;
+    let index = 0;
+
+    while (index < content.length) {
+        const char = content[index];
+
+        if (char === '"') {
+            let end = index + 1;
+            while (end < content.length) {
+                if (content[end] === '\\') {
+                    end += 2;
+                    continue;
+                }
+                if (content[end] === '"') {
+                    break;
+                }
+                end++;
+            }
+
+            const raw = content.slice(index + 1, end);
+            index = end + 1;
+
+            if (depth !== 1 || raw !== 'version') {
+                continue;
+            }
+
+            let colonIndex = index;
+            while (
+                colonIndex < content.length &&
+                /\s/.test(content[colonIndex])
+            ) {
+                colonIndex++;
+            }
+            if (content[colonIndex] !== ':') {
+                continue;
+            }
+
+            let valueQuoteIndex = colonIndex + 1;
+            while (
+                valueQuoteIndex < content.length &&
+                /\s/.test(content[valueQuoteIndex])
+            ) {
+                valueQuoteIndex++;
+            }
+            if (content[valueQuoteIndex] !== '"') {
+                continue;
+            }
+
+            const valueStart = valueQuoteIndex + 1;
+            let valueEnd = valueStart;
+            while (valueEnd < content.length) {
+                if (content[valueEnd] === '\\') {
+                    valueEnd += 2;
+                    continue;
+                }
+                if (content[valueEnd] === '"') {
+                    break;
+                }
+                valueEnd++;
+            }
+
+            return (
+                content.slice(0, valueStart) +
+                nextVersion +
+                content.slice(valueEnd)
+            );
+        }
+
+        if (char === '{' || char === '[') {
+            depth++;
+        } else if (char === '}' || char === ']') {
+            depth--;
+        }
+        index++;
+    }
+
+    return null;
+}
+
 export async function updateVersionJson(
     file: string,
     context: VerifyReleaseContext,
@@ -154,17 +237,22 @@ export async function updateVersionJson(
         return;
     }
 
-    const versionRegex = /^([\s\S]*"version"\s*:\s*")([^"]+)("[\s\S]*$)/;
-
-    const updatedContent = content.replace(versionRegex, `$1${nextVersion}$3`);
-    const newJson = JSON.parse(updatedContent);
-    if (newJson.version !== nextVersion) {
-        throw new SemanticReleaseError(
+    const versionReplaceError = () =>
+        new SemanticReleaseError(
             `Failed to replace version in ${file}`,
             'ERR_VERSION_REPLACE',
             `The version in ${file} could not be updated to ${nextVersion}. Please check if the file ` +
                 `is valid JSON and contains a "version" field.`,
         );
+
+    const updatedContent = replaceTopLevelVersion(content, nextVersion);
+    if (updatedContent === null) {
+        throw versionReplaceError();
+    }
+
+    const newJson = JSON.parse(updatedContent);
+    if (newJson.version !== nextVersion) {
+        throw versionReplaceError();
     }
 
     await writeFile(file, updatedContent, 'utf8');
